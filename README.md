@@ -107,7 +107,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-仓库内直接提供 `demo_data/reference_annotations.json` 作为现成参考答案；运行程序后也会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片、标定文件，并保持这份参考标注可直接导入对比。
+仓库内直接提供 `demo_data/reference_annotations.json` 作为现成参考答案；运行程序后也会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片、标定文件，并保持这份参考标注可直接导入对比。新的示例图不再只是空白底图加点，而是会直接渲染出简化版牛体轮廓与不同视角下的身体结构。
 默认示例相机布局为：
 - `cam_left`：牛身体正左侧；
 - `cam_right`：牛身体正右侧；

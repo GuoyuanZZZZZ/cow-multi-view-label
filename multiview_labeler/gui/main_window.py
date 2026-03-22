@@ -17,9 +17,10 @@ from multiview_labeler.core.geometry import TriangulationEngine
 from multiview_labeler.core.models import FrameAnnotations
 from multiview_labeler.core.qc import QualityChecker
 from multiview_labeler.gui.calibration_dialog import CalibrationDialog
-from multiview_labeler.gui.pages import CalibrationPage, ExportPage, KeypointTable, ProjectPage
+from multiview_labeler.gui.pages import CalibrationPage, ExportPage, FramesPage, KeypointTable, ProjectPage
 from multiview_labeler.gui.views import ImageView, Skeleton3DView
 from multiview_labeler.tools.exporters import Exporter
+from multiview_labeler.tools.frame_sampler import RepresentativeFrameSampler
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -74,6 +75,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pages = QtWidgets.QTabWidget()
         self.project_page = ProjectPage()
         self.pages.addTab(self.project_page, "Project")
+        self.frames_page = FramesPage()
+        self.frames_page.jump_to_frame.connect(self.on_frame_changed)
+        self.frames_page.refresh_requested.connect(self.refresh_frame_suggestions)
+        self.pages.addTab(self.frames_page, "Frames")
         annotation_page = QtWidgets.QWidget()
         annotation_layout = QtWidgets.QHBoxLayout(annotation_page)
         views_widget = QtWidgets.QWidget()
@@ -118,9 +123,13 @@ class MainWindow(QtWidgets.QMainWindow):
         main_layout.addWidget(splitter, 1)
         for key, cb in {"A": lambda: self.change_frame(-1), "D": lambda: self.change_frame(1), "Z": self.on_undo, "Y": self.on_redo, "C": self.on_copy_prev, "I": self.on_interpolate}.items():
             QtGui.QShortcut(QtGui.QKeySequence(key), self, activated=cb)
+        self.refresh_frame_suggestions()
 
     def on_frame_changed(self, value: int) -> None:
-        self.current_frame = value
+        self.current_frame = int(value)
+        self.frame_slider.blockSignals(True)
+        self.frame_slider.setValue(self.current_frame)
+        self.frame_slider.blockSignals(False)
         self.refresh_views()
 
     def change_frame(self, delta: int) -> None:
@@ -217,6 +226,10 @@ class MainWindow(QtWidgets.QMainWindow):
         Exporter.export_3d_csv(out_dir / "keypoints_3d.csv", self.annotations)
         Exporter.export_json(out_dir / "qc_report.json", {str(k): v.qc for k, v in self.annotations.frames.items()})
         QtWidgets.QMessageBox.information(self, "Export", f"Exported files to {out_dir}")
+
+    def refresh_frame_suggestions(self) -> None:
+        suggested = RepresentativeFrameSampler.suggest(self.dataset, top_k=8)
+        self.frames_page.set_frames(suggested)
 
     def _update_geometry_guides(self, frame: FrameAnnotations) -> None:
         width, height = self.dataset.image_size

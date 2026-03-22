@@ -25,6 +25,7 @@ multiview_labeler/
     bootstrap.py      # 组装演示数据集
   tools/
     exporters.py      # 2D/3D/QC 导出工具
+    frame_sampler.py  # representative frames 推荐
 app.py                # 顶层启动入口
 ```
 
@@ -48,9 +49,13 @@ app.py                # 顶层启动入口
   - 多视角同步骨架显示。
 - **页面 / 工作区**
   - `Project` 页面：项目概览、相机数量、帧数、页面结构。
+  - `Frames` 页面：代表帧推荐与快速跳转。
   - `Annotation` 页面：多视角标注 + 关键点检查器 + 实时详情。
   - `Calibration` 页面：标定工作区和状态面板。
   - `Export/QC` 页面：QC 预览与导出入口。
+- **代表帧辅助**
+  - 参考 JARVIS AnnotationTool README 中提到的 representative frames 工作流。
+  - 自动根据图像变化推荐更有代表性的帧，帮助优先标注关键姿态。
 - **实时 3D**
   - 至少两个视角标注后实时三角化。
   - 重投影到全部视角。

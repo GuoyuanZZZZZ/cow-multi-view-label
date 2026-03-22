@@ -113,3 +113,34 @@ class ExportPage(QtWidgets.QWidget):
 
     def set_report(self, payload: dict) -> None:
         self.report.setPlainText(json.dumps(payload, indent=2, ensure_ascii=False))
+
+
+class FramesPage(QtWidgets.QWidget):
+    jump_to_frame = QtCore.Signal(int)
+    refresh_requested = QtCore.Signal()
+
+    def __init__(self) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        info = QtWidgets.QLabel(
+            "Representative Frames Workspace\n"
+            "Inspired by JARVIS-style workflows: review automatically suggested frames\n"
+            "with strong appearance changes to speed up annotation coverage."
+        )
+        info.setWordWrap(True)
+        self.list_widget = QtWidgets.QListWidget()
+        self.list_widget.itemClicked.connect(self._on_item_clicked)
+        refresh_btn = QtWidgets.QPushButton("Refresh Suggestions")
+        refresh_btn.clicked.connect(self.refresh_requested.emit)
+        layout.addWidget(info)
+        layout.addWidget(self.list_widget)
+        layout.addWidget(refresh_btn)
+
+    def set_frames(self, frames: List[int]) -> None:
+        self.list_widget.clear()
+        for frame_idx in frames:
+            self.list_widget.addItem(f"Frame {frame_idx + 1}")
+
+    def _on_item_clicked(self, item: QtWidgets.QListWidgetItem) -> None:
+        text = item.text().replace("Frame ", "")
+        self.jump_to_frame.emit(int(text) - 1)

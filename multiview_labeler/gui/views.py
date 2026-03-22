@@ -35,11 +35,16 @@ class ImageView(pg.GraphicsLayoutWidget):
         self.epipolar_item = pg.PlotDataItem(pen=pg.mkPen((180, 0, 180), width=2, style=QtCore.Qt.DashLine))
         self.view.addItem(self.epipolar_item)
         self.scatter.sigClicked.connect(self.on_scatter_clicked)
+        self.view.setMouseEnabled(x=True, y=True)
 
     def set_image(self, image_bgr: np.ndarray) -> None:
         rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
         self.image_item.setImage(np.flipud(np.swapaxes(rgb, 0, 1)))
-        self.view.setRange(QtCore.QRectF(0, 0, image_bgr.shape[1], image_bgr.shape[0]))
+        if not hasattr(self, "_image_rect"):
+            self._image_rect = QtCore.QRectF(0, 0, image_bgr.shape[1], image_bgr.shape[0])
+            self.view.setRange(self._image_rect)
+        else:
+            self._image_rect = QtCore.QRectF(0, 0, image_bgr.shape[1], image_bgr.shape[0])
 
     def set_points(self, points: List[Keypoint2D], reprojected=None, anomalies: Optional[set] = None) -> None:
         self.current_points = points
@@ -120,6 +125,21 @@ class ImageView(pg.GraphicsLayoutWidget):
     def mouseReleaseEvent(self, event: QtGui.QMouseEvent) -> None:
         self.dragging_idx = None
         super().mouseReleaseEvent(event)
+
+    def wheelEvent(self, event: QtGui.QWheelEvent) -> None:
+        factor = 1.2 if event.angleDelta().y() > 0 else 1 / 1.2
+        self.view.scaleBy((1 / factor, 1 / factor))
+        event.accept()
+
+    def zoom_in(self) -> None:
+        self.view.scaleBy((0.8, 0.8))
+
+    def zoom_out(self) -> None:
+        self.view.scaleBy((1.25, 1.25))
+
+    def fit_to_image(self) -> None:
+        if hasattr(self, "_image_rect"):
+            self.view.setRange(self._image_rect, padding=0.02)
 
 
 class Skeleton3DView(gl.GLViewWidget):

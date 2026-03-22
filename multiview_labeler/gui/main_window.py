@@ -16,6 +16,7 @@ from multiview_labeler.core.dataset import MultiCameraDataset
 from multiview_labeler.core.geometry import TriangulationEngine
 from multiview_labeler.core.models import FrameAnnotations
 from multiview_labeler.core.qc import QualityChecker
+from multiview_labeler.gui.calibration_dialog import CalibrationDialog
 from multiview_labeler.gui.views import ImageView, Skeleton3DView
 from multiview_labeler.tools.exporters import Exporter
 
@@ -60,7 +61,8 @@ class MainWindow(QtWidgets.QMainWindow):
         for text, callback in [
             ("Undo", self.on_undo), ("Redo", self.on_redo), ("Copy Prev", self.on_copy_prev),
             ("Interpolate", self.on_interpolate), ("Export", self.on_export),
-            ("Save Calib", self.on_save_calib), ("Load Calib", self.on_load_calib),
+            ("Run Calib", self.on_run_calibration), ("Save Calib", self.on_save_calib), ("Load Calib", self.on_load_calib),
+            ("Zoom In", self.on_zoom_in), ("Zoom Out", self.on_zoom_out), ("Fit", self.on_zoom_fit),
         ]:
             btn = QtWidgets.QPushButton(text)
             btn.clicked.connect(callback)
@@ -147,11 +149,30 @@ class MainWindow(QtWidgets.QMainWindow):
         if path:
             CalibrationIO.save(Path(path), self.dataset.calibrations)
 
+    def on_run_calibration(self) -> None:
+        camera_dirs = {cid: self.dataset.cameras[cid][0].parent for cid in self.dataset.camera_ids()}
+        dialog = CalibrationDialog(camera_dirs, self)
+        if dialog.exec() and dialog.calibrations:
+            self.dataset.calibrations = dialog.calibrations
+            self.refresh_views()
+
     def on_load_calib(self) -> None:
         path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Load calibration", str(self.demo_root), "JSON (*.json)")
         if path:
             self.dataset.calibrations = CalibrationIO.load(Path(path))
             self.refresh_views()
+
+    def on_zoom_in(self) -> None:
+        for view in self.views.values():
+            view.zoom_in()
+
+    def on_zoom_out(self) -> None:
+        for view in self.views.values():
+            view.zoom_out()
+
+    def on_zoom_fit(self) -> None:
+        for view in self.views.values():
+            view.fit_to_image()
 
     def on_export(self) -> None:
         out_dir = self.demo_root / "exports"

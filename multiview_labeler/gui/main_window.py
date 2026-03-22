@@ -19,6 +19,7 @@ from multiview_labeler.core.qc import QualityChecker
 from multiview_labeler.gui.calibration_dialog import CalibrationDialog
 from multiview_labeler.gui.pages import CalibrationPage, ConstraintsPage, ExportPage, FramesPage, ImportWizardPage, KeypointTable, ProjectPage
 from multiview_labeler.gui.views import ImageView, Skeleton3DView
+from multiview_labeler.tools.annotation_io import AnnotationIO
 from multiview_labeler.tools.exporters import Exporter
 from multiview_labeler.tools.frame_sampler import RepresentativeFrameSampler
 
@@ -44,6 +45,9 @@ class MainWindow(QtWidgets.QMainWindow):
         central = QtWidgets.QWidget()
         self.setCentralWidget(central)
         main_layout = QtWidgets.QVBoxLayout(central)
+        title = QtWidgets.QLabel("Multi-camera Annotation Workbench")
+        title.setStyleSheet("font-size: 20px; font-weight: 700; padding: 4px 0 8px 0;")
+        main_layout.addWidget(title)
         toolbar = QtWidgets.QHBoxLayout()
         self.frame_slider = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.frame_slider.setRange(0, max(0, self.dataset.frame_count - 1))
@@ -91,7 +95,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.frames_page.refresh_requested.connect(self.refresh_frame_suggestions)
         self.pages.addTab(self.frames_page, "Frames")
         annotation_page = QtWidgets.QWidget()
-        annotation_layout = QtWidgets.QHBoxLayout(annotation_page)
+        annotation_layout = QtWidgets.QVBoxLayout(annotation_page)
         views_widget = QtWidgets.QWidget()
         views_layout = QtWidgets.QGridLayout(views_widget)
         for idx, cid in enumerate(self.dataset.camera_ids()):
@@ -103,18 +107,7 @@ class MainWindow(QtWidgets.QMainWindow):
             group_layout = QtWidgets.QVBoxLayout(group)
             group_layout.addWidget(view)
             views_layout.addWidget(group, idx // 2, idx % 2)
-        annotation_layout.addWidget(views_widget, 4)
-        self.keypoint_table = KeypointTable()
-        self.keypoint_table.point_selected.connect(self.on_keypoint_changed)
-        annotation_side = QtWidgets.QWidget()
-        annotation_side_layout = QtWidgets.QVBoxLayout(annotation_side)
-        annotation_side_layout.addWidget(QtWidgets.QLabel("Keypoint Inspector"))
-        annotation_side_layout.addWidget(self.keypoint_table, 2)
-        annotation_side_layout.addWidget(QtWidgets.QLabel("Realtime Details"))
-        self.info_box = QtWidgets.QPlainTextEdit()
-        self.info_box.setReadOnly(True)
-        annotation_side_layout.addWidget(self.info_box, 3)
-        annotation_layout.addWidget(annotation_side, 1)
+        annotation_layout.addWidget(views_widget)
         self.pages.addTab(annotation_page, "Annotation")
         self.constraints_page = ConstraintsPage([f"{KEYPOINTS[a]}-{KEYPOINTS[b]}" for a, b in SKELETON])
         self.pages.addTab(self.constraints_page, "Constraints")
@@ -123,16 +116,30 @@ class MainWindow(QtWidgets.QMainWindow):
         right_layout = QtWidgets.QVBoxLayout(right_panel)
         self.gl_view = Skeleton3DView()
         right_layout.addWidget(self.gl_view, 2)
+        inspector_tabs = QtWidgets.QTabWidget()
+        inspector_widget = QtWidgets.QWidget()
+        inspector_layout = QtWidgets.QVBoxLayout(inspector_widget)
+        self.keypoint_table = KeypointTable()
+        self.keypoint_table.point_selected.connect(self.on_keypoint_changed)
+        inspector_layout.addWidget(QtWidgets.QLabel("Keypoint Inspector"))
+        inspector_layout.addWidget(self.keypoint_table, 2)
+        inspector_layout.addWidget(QtWidgets.QLabel("Realtime Details"))
+        self.info_box = QtWidgets.QPlainTextEdit()
+        self.info_box.setReadOnly(True)
+        inspector_layout.addWidget(self.info_box, 3)
+        inspector_tabs.addTab(inspector_widget, "Inspector")
         self.calibration_page = CalibrationPage()
         self.calibration_page.run_calibration.connect(self.on_run_calibration)
         self.calibration_page.save_calibration.connect(self.on_save_calib)
         self.calibration_page.load_calibration.connect(self.on_load_calib)
-        right_layout.addWidget(self.calibration_page, 1)
+        inspector_tabs.addTab(self.calibration_page, "Calibration")
         self.export_page = ExportPage()
         self.export_page.export_requested.connect(self.on_export)
-        right_layout.addWidget(self.export_page, 1)
+        self.export_page.import_requested.connect(self.on_import_annotations)
+        inspector_tabs.addTab(self.export_page, "Export / Import")
+        right_layout.addWidget(inspector_tabs, 2)
         splitter.addWidget(right_panel)
-        splitter.setSizes([1100, 600])
+        splitter.setSizes([420, 900, 520])
         main_layout.addWidget(splitter, 1)
         for key, cb in {"A": lambda: self.change_frame(-1), "D": lambda: self.change_frame(1), "Z": self.on_undo, "Y": self.on_redo, "C": self.on_copy_prev, "I": self.on_interpolate}.items():
             QtGui.QShortcut(QtGui.QKeySequence(key), self, activated=cb)
@@ -266,6 +273,11 @@ class MainWindow(QtWidgets.QMainWindow):
         Exporter.export_3d_csv(out_dir / "keypoints_3d.csv", self.annotations)
         Exporter.export_json(out_dir / "qc_report.json", {str(frame_idx): {str(instance_idx): frame.qc for instance_idx, frame in instances.items()} for frame_idx, instances in self.annotations.frames.items()})
         QtWidgets.QMessageBox.information(self, "Export", f"Exported files to {out_dir}")
+
+    def on_import_annotations(self) -> None:
+        path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Import annotations", str(self.demo_root), "JSON (*.json)")
+        if path:
+            AnnotationIO.import_json(Path(path), self.annotations)
 
     def refresh_frame_suggestions(self) -> None:
         suggested = RepresentativeFrameSampler.suggest(self.dataset, top_k=8)

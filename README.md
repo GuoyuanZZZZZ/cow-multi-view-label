@@ -19,6 +19,7 @@ multiview_labeler/
     views.py          # 2D视图与3D视图控件
     calibration_dialog.py # GUI 标定面板
     pages.py          # Project / Annotation / Calibration / Export 页面
+    theme.py          # 深色主题与界面样式
     main_window.py    # 主窗口与交互逻辑
   demo/
     demo_builder.py   # 自动生成示例图片与标定
@@ -26,6 +27,7 @@ multiview_labeler/
   tools/
     exporters.py      # 2D/3D/QC 导出工具
     frame_sampler.py  # representative frames 推荐
+    annotation_io.py  # 导入已有标注结果
 app.py                # 顶层启动入口
 ```
 
@@ -57,7 +59,7 @@ app.py                # 顶层启动入口
   - `Annotation` 页面：多视角标注 + 关键点检查器 + 实时详情。
   - `Constraints` 页面：骨长/真实测量值约束编辑与状态查看。
   - `Calibration` 页面：标定工作区和状态面板。
-  - `Export/QC` 页面：QC 预览与导出入口。
+  - `Export/QC` 页面：QC 预览、导出与导入已有标注入口。
 - **代表帧辅助**
   - 参考 JARVIS AnnotationTool README 中提到的 representative frames 工作流。
   - 自动根据图像变化 + 均匀采样混合推荐更有代表性的帧，帮助优先标注关键姿态。
@@ -81,6 +83,13 @@ app.py                # 顶层启动入口
   - 2D JSON/CSV。
   - 3D JSON/CSV。
   - QC 报告 JSON。
+- **导入已有标注**
+  - 支持从已有 `annotations.json` 重新导入到当前工程继续编辑。
+
+## 界面改进
+
+- 使用更完整的深色主题，不再是过于简洁的默认控件风格。
+- 工作区重新布局为：左侧页面导航 / 中央多视角标注 / 右侧 3D + Inspector + Calibration + Export。
 
 ## 运行方式
 

@@ -112,17 +112,23 @@ class CalibrationPage(QtWidgets.QWidget):
 
 class ExportPage(QtWidgets.QWidget):
     export_requested = QtCore.Signal()
+    import_requested = QtCore.Signal()
 
     def __init__(self) -> None:
         super().__init__()
         layout = QtWidgets.QVBoxLayout(self)
         self.report = QtWidgets.QPlainTextEdit()
         self.report.setReadOnly(True)
+        buttons = QtWidgets.QHBoxLayout()
         export_btn = QtWidgets.QPushButton("Export 2D/3D/QC")
+        import_btn = QtWidgets.QPushButton("Import Existing Labels")
         export_btn.clicked.connect(self.export_requested.emit)
+        import_btn.clicked.connect(self.import_requested.emit)
         layout.addWidget(QtWidgets.QLabel("QC / Export Workspace"))
         layout.addWidget(self.report)
-        layout.addWidget(export_btn)
+        buttons.addWidget(export_btn)
+        buttons.addWidget(import_btn)
+        layout.addLayout(buttons)
 
     def set_report(self, payload: dict) -> None:
         self.report.setPlainText(json.dumps(payload, indent=2, ensure_ascii=False))

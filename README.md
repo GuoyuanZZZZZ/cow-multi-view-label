@@ -92,6 +92,7 @@ app.py                # 顶层启动入口
   - QC 报告 JSON。
 - **导入已有标注**
   - 支持从已有 `annotations.json` 重新导入到当前工程继续编辑。
+- Demo 工程自带 `reference_annotations.json`，也可以直接在工具栏点击 `Load Demo Ref` 载入参考标注结果，对比你的标注是否正确。
 
 ## 界面改进
 
@@ -106,7 +107,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-程序会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片与标定文件，开箱即用。
+程序会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片、标定文件，以及一份可直接导入的参考答案 `reference_annotations.json`，开箱即用。
 默认示例相机布局为：
 - `cam_left`：牛身体正左侧；
 - `cam_right`：牛身体正右侧；

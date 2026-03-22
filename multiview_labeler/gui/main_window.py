@@ -111,7 +111,7 @@ class MainWindow(QtWidgets.QMainWindow):
         toolbar.addWidget(self.view_selector_btn)
         for text, callback in [
             ("Undo", self.on_undo), ("Redo", self.on_redo), ("Copy Prev", self.on_copy_prev),
-            ("Interpolate", self.on_interpolate), ("Delete Point", self.on_delete_point), ("Export", self.on_export),
+            ("Interpolate", self.on_interpolate), ("Delete Point", self.on_delete_point), ("Load Demo Ref", self.on_load_demo_reference), ("Export", self.on_export),
             ("Run Calib", self.on_run_calibration), ("Save Calib", self.on_save_calib), ("Load Calib", self.on_load_calib),
             ("Zoom In", self.on_zoom_in), ("Zoom Out", self.on_zoom_out), ("Fit", self.on_zoom_fit),
         ]:
@@ -379,6 +379,14 @@ class MainWindow(QtWidgets.QMainWindow):
         path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Import annotations", str(self.demo_root), "JSON (*.json)")
         if path:
             AnnotationIO.import_json(Path(path), self.annotations)
+
+    def on_load_demo_reference(self) -> None:
+        reference_path = self.demo_root / "reference_annotations.json"
+        if not reference_path.exists():
+            QtWidgets.QMessageBox.warning(self, "Demo reference", f"Reference annotations not found: {reference_path}")
+            return
+        AnnotationIO.import_json(reference_path, self.annotations)
+        QtWidgets.QMessageBox.information(self, "Demo reference", f"Loaded reference annotations from {reference_path}")
 
     def refresh_frame_suggestions(self) -> None:
         suggested = RepresentativeFrameSampler.suggest(self.dataset, top_k=8)

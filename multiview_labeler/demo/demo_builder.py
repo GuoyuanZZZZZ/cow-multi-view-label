@@ -1,6 +1,7 @@
 """Synthetic demo data generation."""
 from __future__ import annotations
 
+import json
 import math
 from pathlib import Path
 
@@ -54,25 +55,37 @@ class DemoDataBuilder:
             }
             return masks.get(camera_id, set(range(len(KEYPOINTS))))
 
+        reference_payload = {}
         for frame_idx in range(20):
             points = points_template.copy()
             points[:, 0] += math.sin(frame_idx / 3.0) * 0.25
             points[[0, 3], 1] += math.cos(frame_idx / 4.0) * 0.08
             points[:, 2] += math.sin(frame_idx / 5.0) * 0.2
+            frame_payload = {"2d": {}, "3d": [pt.tolist() for pt in points], "qc": {}}
             for cid, calib in calibrations.items():
                 img = np.full((height, width, 3), (245, 248, 252), dtype=np.uint8)
                 visible = visible_indices(cid)
+                keypoints_payload = []
                 for i, pt in enumerate(points):
-                    if i not in visible:
-                        continue
-                    uv = calib.project(pt).astype(int)
-                    if 0 <= uv[0] < width and 0 <= uv[1] < height:
-                        cv2.circle(img, tuple(uv), 7, (30, 30, 220), -1)
-                        cv2.putText(img, KEYPOINTS[i], (uv[0] + 8, uv[1] - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 70), 1)
+                    if i in visible:
+                        uv = calib.project(pt)
+                        visible_in_frame = 0 <= uv[0] < width and 0 <= uv[1] < height
+                        if visible_in_frame:
+                            uv_int = uv.astype(int)
+                            cv2.circle(img, tuple(uv_int), 7, (30, 30, 220), -1)
+                            cv2.putText(img, KEYPOINTS[i], (uv_int[0] + 8, uv_int[1] - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 70), 1)
+                            keypoints_payload.append({"x": float(uv[0]), "y": float(uv[1]), "visibility": "visible"})
+                        else:
+                            keypoints_payload.append({"x": None, "y": None, "visibility": "absent"})
+                    else:
+                        keypoints_payload.append({"x": None, "y": None, "visibility": "absent"})
+                frame_payload["2d"][cid] = keypoints_payload
                 for a, b in SKELETON:
                     if a in visible and b in visible:
                         cv2.line(img, tuple(calib.project(points[a]).astype(int)), tuple(calib.project(points[b]).astype(int)), (80, 140, 80), 2)
                 cv2.putText(img, f"{cid} frame {frame_idx:03d}", (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (50, 50, 50), 2)
                 cv2.imwrite(str(self.root / cid / f"frame_{frame_idx:03d}.png"), img)
+            reference_payload[str(frame_idx)] = {"0": frame_payload}
         CalibrationIO.save(self.root / "demo_calibration.json", calibrations)
+        (self.root / "reference_annotations.json").write_text(json.dumps(reference_payload, indent=2), encoding="utf-8")
         return self.root

@@ -30,18 +30,29 @@ class CalibrationValidator:
         return float(np.mean(np.linalg.norm(reprojected - reprojected.mean(axis=0), axis=1)))
 
     @staticmethod
-    def demo_calibrate(width: int, height: int, camera_id: str, yaw_deg: float, tx: float) -> CameraCalibration:
+    def demo_calibrate(
+        width: int,
+        height: int,
+        camera_id: str,
+        yaw_deg: float,
+        tx: float,
+        pitch_deg: float = 0.0,
+        ty: float = 0.0,
+        tz: float = 8.0,
+    ) -> CameraCalibration:
         fx = fy = 900.0
         k = np.array([[fx, 0, width / 2], [0, fy, height / 2], [0, 0, 1]], dtype=np.float64)
         dist = np.zeros(5, dtype=np.float64)
         yaw = math.radians(yaw_deg)
-        r = np.array(
-            [
-                [math.cos(yaw), 0, math.sin(yaw)],
-                [0, 1, 0],
-                [-math.sin(yaw), 0, math.cos(yaw)],
-            ],
+        pitch = math.radians(pitch_deg)
+        ry = np.array(
+            [[math.cos(yaw), 0, math.sin(yaw)], [0, 1, 0], [-math.sin(yaw), 0, math.cos(yaw)]],
             dtype=np.float64,
         )
-        t = np.array([tx, 0.0, 8.0], dtype=np.float64)
+        rx = np.array(
+            [[1, 0, 0], [0, math.cos(pitch), -math.sin(pitch)], [0, math.sin(pitch), math.cos(pitch)]],
+            dtype=np.float64,
+        )
+        r = rx @ ry
+        t = np.array([tx, ty, tz], dtype=np.float64)
         return CameraCalibration(camera_id=camera_id, K=k, distCoeffs=dist, R=r, t=t)

@@ -32,8 +32,12 @@ class ImageView(pg.GraphicsLayoutWidget):
         self.dragging_idx: Optional[int] = None
         self.drag_distance = 16.0
         self.current_points: List[Keypoint2D] = []
+        self.roi_start: Optional[QtCore.QPointF] = None
+        self.roi_rect_item = pg.RectROI([0, 0], [1, 1], pen=pg.mkPen("m", width=2))
+        self.roi_rect_item.hide()
         self.epipolar_item = pg.PlotDataItem(pen=pg.mkPen((180, 0, 180), width=2, style=QtCore.Qt.DashLine))
         self.view.addItem(self.epipolar_item)
+        self.view.addItem(self.roi_rect_item)
         self.scatter.sigClicked.connect(self.on_scatter_clicked)
         self.view.setMouseEnabled(x=True, y=True)
 
@@ -106,6 +110,13 @@ class ImageView(pg.GraphicsLayoutWidget):
 
     def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
         scene_pos = self.view.mapSceneToView(event.position())
+        if event.modifiers() & QtCore.Qt.ShiftModifier:
+            self.roi_start = scene_pos
+            self.roi_rect_item.setPos([scene_pos.x(), scene_pos.y()])
+            self.roi_rect_item.setSize([1, 1])
+            self.roi_rect_item.show()
+            event.accept()
+            return
         if event.button() == QtCore.Qt.LeftButton:
             nearby = self._find_nearby_point(scene_pos.x(), scene_pos.y())
             if nearby is not None:
@@ -117,12 +128,29 @@ class ImageView(pg.GraphicsLayoutWidget):
         super().mousePressEvent(event)
 
     def mouseMoveEvent(self, event: QtGui.QMouseEvent) -> None:
+        if self.roi_start is not None:
+            scene_pos = self.view.mapSceneToView(event.position())
+            x0, y0 = self.roi_start.x(), self.roi_start.y()
+            x1, y1 = scene_pos.x(), scene_pos.y()
+            self.roi_rect_item.setPos([min(x0, x1), min(y0, y1)])
+            self.roi_rect_item.setSize([max(1, abs(x1 - x0)), max(1, abs(y1 - y0))])
+            event.accept()
+            return
         if self.dragging_idx is not None:
             scene_pos = self.view.mapSceneToView(event.position())
             self.point_changed.emit(self.camera_id, self.dragging_idx, scene_pos.x(), scene_pos.y())
         super().mouseMoveEvent(event)
 
     def mouseReleaseEvent(self, event: QtGui.QMouseEvent) -> None:
+        if self.roi_start is not None:
+            scene_pos = self.view.mapSceneToView(event.position())
+            rect = QtCore.QRectF(self.roi_start, scene_pos).normalized()
+            if rect.width() > 5 and rect.height() > 5:
+                self.view.setRange(rect, padding=0.02)
+            self.roi_start = None
+            self.roi_rect_item.hide()
+            event.accept()
+            return
         self.dragging_idx = None
         super().mouseReleaseEvent(event)
 
@@ -172,3 +200,20 @@ class Skeleton3DView(gl.GLViewWidget):
                 line = gl.GLLinePlotItem(pos=np.vstack([dense[a], dense[b]]), color=(0.3, 0.8, 0.2, 1), width=2, antialias=True)
                 self.addItem(line)
                 self.lines.append(line)
+
+    def wheelEvent(self, event):
+        delta = event.angleDelta().y()
+        self.opts["distance"] = max(1.0, self.opts["distance"] * (0.85 if delta > 0 else 1.15))
+        self.update()
+        event.accept()
+
+    def zoom_in(self) -> None:
+        self.opts["distance"] = max(1.0, self.opts["distance"] * 0.85)
+        self.update()
+
+    def zoom_out(self) -> None:
+        self.opts["distance"] = self.opts["distance"] * 1.15
+        self.update()
+
+    def reset_view(self) -> None:
+        self.setCameraPosition(distance=10)

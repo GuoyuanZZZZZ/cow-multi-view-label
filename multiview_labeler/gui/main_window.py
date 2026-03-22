@@ -239,14 +239,17 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_zoom_in(self) -> None:
         for view in self.views.values():
             view.zoom_in()
+        self.gl_view.zoom_in()
 
     def on_zoom_out(self) -> None:
         for view in self.views.values():
             view.zoom_out()
+        self.gl_view.zoom_out()
 
     def on_zoom_fit(self) -> None:
         for view in self.views.values():
             view.fit_to_image()
+        self.gl_view.reset_view()
 
     def on_export(self) -> None:
         out_dir = self.demo_root / "exports"

@@ -68,9 +68,9 @@ class MultiCameraDataset:
     def save_demo_calibration(self, path: Path) -> None:
         width, height = self.image_size
         calibrations = {}
+        presets = [(-20, -1.5, 0.0, 0.0, 8.0), (20, 1.5, 0.0, 0.0, 8.0), (0, 0.0, -80.0, -4.0, 10.0)]
         for idx, camera_id in enumerate(self.camera_ids()):
-            yaw = -12 + idx * 12
-            tx = -1.2 + idx * 1.2
-            calibrations[camera_id] = CalibrationValidator.demo_calibrate(width, height, camera_id, yaw, tx)
+            yaw, tx, pitch, ty, tz = presets[min(idx, len(presets) - 1)]
+            calibrations[camera_id] = CalibrationValidator.demo_calibrate(width, height, camera_id, yaw, tx, pitch_deg=pitch, ty=ty, tz=tz)
         CalibrationIO.save(path, calibrations)
         self.calibrations = calibrations

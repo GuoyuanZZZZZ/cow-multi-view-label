@@ -21,9 +21,11 @@ class DemoDataBuilder:
         cams = ["cam01", "cam02", "cam03"]
         calibrations = {}
         width, height = self.image_size
+        presets = [(-20, -1.5, 0.0, 0.0, 8.0), (20, 1.5, 0.0, 0.0, 8.0), (0, 0.0, -80.0, -4.0, 10.0)]
         for idx, cid in enumerate(cams):
             (self.root / cid).mkdir(exist_ok=True)
-            calibrations[cid] = CalibrationValidator.demo_calibrate(width, height, cid, -12 + idx * 12, -1.2 + idx * 1.2)
+            yaw, tx, pitch, ty, tz = presets[idx]
+            calibrations[cid] = CalibrationValidator.demo_calibrate(width, height, cid, yaw, tx, pitch_deg=pitch, ty=ty, tz=tz)
         points_template = np.array(
             [
                 [0.0, 0.9, 0.0], [0.0, 0.45, 0.0], [0.0, 0.0, 0.0], [0.0, -0.6, 0.0],

@@ -113,8 +113,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pages.addTab(self.frames_page, "Frames")
         annotation_page = QtWidgets.QWidget()
         annotation_layout = QtWidgets.QVBoxLayout(annotation_page)
-        top_row = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
-        bottom_row = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
+        rows: list[QtWidgets.QSplitter] = []
         camera_ids = self.dataset.camera_ids()
         for idx, cid in enumerate(camera_ids):
             view = ImageView(cid)
@@ -122,14 +121,13 @@ class MainWindow(QtWidgets.QMainWindow):
             view.point_selected.connect(self.on_view_point_selected)
             self.views[cid] = view
             group = self._build_camera_panel(cid, view)
-            if idx < 2:
-                top_row.addWidget(group)
-            else:
-                bottom_row.addWidget(group)
+            row_idx = idx // 3
+            if row_idx >= len(rows):
+                rows.append(QtWidgets.QSplitter(QtCore.Qt.Horizontal))
+            rows[row_idx].addWidget(group)
         views_splitter = QtWidgets.QSplitter(QtCore.Qt.Vertical)
-        views_splitter.addWidget(top_row)
-        if bottom_row.count() > 0:
-            views_splitter.addWidget(bottom_row)
+        for row in rows:
+            views_splitter.addWidget(row)
         annotation_layout.addWidget(views_splitter)
         self.pages.addTab(annotation_page, "Annotation")
         self.constraints_page = ConstraintsPage([f"{KEYPOINTS[a]}-{KEYPOINTS[b]}" for a, b in SKELETON])

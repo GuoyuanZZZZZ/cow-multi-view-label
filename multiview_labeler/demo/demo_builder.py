@@ -18,10 +18,18 @@ class DemoDataBuilder:
 
     def build(self) -> Path:
         self.root.mkdir(parents=True, exist_ok=True)
-        cams = ["cam01", "cam02", "cam03"]
+        cams = ["cam_left", "cam_right", "cam_top", "cam_ground_fl", "cam_ground_fr", "cam_ground_rl", "cam_ground_rr"]
         calibrations = {}
         width, height = self.image_size
-        presets = [(-20, -1.5, 0.0, 0.0, 8.0), (20, 1.5, 0.0, 0.0, 8.0), (0, 0.0, -80.0, -4.0, 10.0)]
+        presets = [
+            (-25, -2.5, 0.0, 0.0, 8.0),
+            (25, 2.5, 0.0, 0.0, 8.0),
+            (0, 0.0, -85.0, -5.0, 12.0),
+            (-10, -0.9, 55.0, 1.2, 5.5),
+            (10, 0.9, 55.0, 1.2, 5.5),
+            (-10, -0.9, 55.0, -1.2, 5.5),
+            (10, 0.9, 55.0, -1.2, 5.5),
+        ]
         for idx, cid in enumerate(cams):
             (self.root / cid).mkdir(exist_ok=True)
             yaw, tx, pitch, ty, tz = presets[idx]

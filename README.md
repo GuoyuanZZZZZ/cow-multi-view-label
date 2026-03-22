@@ -101,5 +101,9 @@ pip install -r requirements.txt
 python app.py
 ```
 
-程序会在 `demo_data/` 下自动生成 3 个相机、20 帧的同步示例图片与标定文件，开箱即用。
-默认示例相机布局已调整为：**两个侧视角 + 一个俯视角**。
+程序会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片与标定文件，开箱即用。
+默认示例相机布局为：
+- `cam_left`：牛身体正左侧；
+- `cam_right`：牛身体正右侧；
+- `cam_top`：牛身体上方俯视；
+- `cam_ground_fl` / `cam_ground_fr` / `cam_ground_rl` / `cam_ground_rr`：位于身体下方、两腿之间附近的 4 个地面视角。

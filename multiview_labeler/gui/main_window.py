@@ -17,6 +17,7 @@ from multiview_labeler.core.geometry import TriangulationEngine
 from multiview_labeler.core.models import FrameAnnotations
 from multiview_labeler.core.qc import QualityChecker
 from multiview_labeler.gui.calibration_dialog import CalibrationDialog
+from multiview_labeler.gui.pages import CalibrationPage, ExportPage, KeypointTable, ProjectPage
 from multiview_labeler.gui.views import ImageView, Skeleton3DView
 from multiview_labeler.tools.exporters import Exporter
 
@@ -30,6 +31,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_frame = 0
         self.current_keypoint = 0
         self.views: Dict[str, ImageView] = {}
+        self.current_qc_payload: dict = {}
         self.setWindowTitle("Multi-camera 2D/3D Labeler Demo")
         self.resize(1700, 980)
         self._build_ui()
@@ -69,6 +71,11 @@ class MainWindow(QtWidgets.QMainWindow):
             toolbar.addWidget(btn)
         main_layout.addLayout(toolbar)
         splitter = QtWidgets.QSplitter()
+        self.pages = QtWidgets.QTabWidget()
+        self.project_page = ProjectPage()
+        self.pages.addTab(self.project_page, "Project")
+        annotation_page = QtWidgets.QWidget()
+        annotation_layout = QtWidgets.QHBoxLayout(annotation_page)
         views_widget = QtWidgets.QWidget()
         views_layout = QtWidgets.QGridLayout(views_widget)
         for idx, cid in enumerate(self.dataset.camera_ids()):
@@ -80,14 +87,32 @@ class MainWindow(QtWidgets.QMainWindow):
             group_layout = QtWidgets.QVBoxLayout(group)
             group_layout.addWidget(view)
             views_layout.addWidget(group, idx // 2, idx % 2)
-        splitter.addWidget(views_widget)
+        annotation_layout.addWidget(views_widget, 4)
+        self.keypoint_table = KeypointTable()
+        self.keypoint_table.point_selected.connect(self.on_keypoint_changed)
+        annotation_side = QtWidgets.QWidget()
+        annotation_side_layout = QtWidgets.QVBoxLayout(annotation_side)
+        annotation_side_layout.addWidget(QtWidgets.QLabel("Keypoint Inspector"))
+        annotation_side_layout.addWidget(self.keypoint_table, 2)
+        annotation_side_layout.addWidget(QtWidgets.QLabel("Realtime Details"))
+        self.info_box = QtWidgets.QPlainTextEdit()
+        self.info_box.setReadOnly(True)
+        annotation_side_layout.addWidget(self.info_box, 3)
+        annotation_layout.addWidget(annotation_side, 1)
+        self.pages.addTab(annotation_page, "Annotation")
+        splitter.addWidget(self.pages)
         right_panel = QtWidgets.QWidget()
         right_layout = QtWidgets.QVBoxLayout(right_panel)
         self.gl_view = Skeleton3DView()
         right_layout.addWidget(self.gl_view, 2)
-        self.info_box = QtWidgets.QPlainTextEdit()
-        self.info_box.setReadOnly(True)
-        right_layout.addWidget(self.info_box, 1)
+        self.calibration_page = CalibrationPage()
+        self.calibration_page.run_calibration.connect(self.on_run_calibration)
+        self.calibration_page.save_calibration.connect(self.on_save_calib)
+        self.calibration_page.load_calibration.connect(self.on_load_calib)
+        right_layout.addWidget(self.calibration_page, 1)
+        self.export_page = ExportPage()
+        self.export_page.export_requested.connect(self.on_export)
+        right_layout.addWidget(self.export_page, 1)
         splitter.addWidget(right_panel)
         splitter.setSizes([1100, 600])
         main_layout.addWidget(splitter, 1)
@@ -103,6 +128,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_keypoint_changed(self, index: int) -> None:
         self.current_keypoint = index
+        if isinstance(index, int):
+            self.keypoint_combo.blockSignals(True)
+            self.keypoint_combo.setCurrentIndex(index)
+            self.keypoint_combo.blockSignals(False)
         for view in self.views.values():
             view.selected_idx = index
         self.refresh_views()
@@ -154,12 +183,14 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog = CalibrationDialog(camera_dirs, self)
         if dialog.exec() and dialog.calibrations:
             self.dataset.calibrations = dialog.calibrations
+            self.calibration_page.set_status("Calibration updated from GUI dialog.")
             self.refresh_views()
 
     def on_load_calib(self) -> None:
         path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Load calibration", str(self.demo_root), "JSON (*.json)")
         if path:
             self.dataset.calibrations = CalibrationIO.load(Path(path))
+            self.calibration_page.set_status(f"Loaded calibration from {path}")
             self.refresh_views()
 
     def on_zoom_in(self) -> None:
@@ -198,6 +229,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 view.set_epipolar_line(None, width, height)
 
     def refresh_views(self) -> None:
+        self.project_page.update_summary(self.dataset.camera_ids(), self.dataset.frame_count, self.dataset.image_size)
         self.frame_label.setText(f"{self.current_frame + 1}/{self.dataset.frame_count}")
         frame = self.annotations.frame(self.current_frame)
         frame.points3d = TriangulationEngine.triangulate_frame(frame, self.dataset.calibrations)
@@ -215,6 +247,7 @@ class MainWindow(QtWidgets.QMainWindow):
             view.set_points(frame.by_camera[cid], reprojected=reprojected, anomalies=anomalies_by_cam[cid])
             view.selected_idx = self.current_keypoint
         self.gl_view.set_points(frame.points3d, self.current_keypoint, anomalies_3d)
+        self.keypoint_table.update_points(frame.by_camera, frame.points3d)
         point3d = frame.points3d[self.current_keypoint]
         recommendations = []
         if point3d is not None:
@@ -229,4 +262,6 @@ class MainWindow(QtWidgets.QMainWindow):
             "recommendations": recommendations,
             "qc": frame.qc,
         }
+        self.current_qc_payload = details
         self.info_box.setPlainText(json.dumps(details, indent=2, ensure_ascii=False))
+        self.export_page.set_report(details)

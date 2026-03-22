@@ -18,6 +18,7 @@ multiview_labeler/
   gui/
     views.py          # 2D视图与3D视图控件
     calibration_dialog.py # GUI 标定面板
+    pages.py          # Project / Annotation / Calibration / Export 页面
     main_window.py    # 主窗口与交互逻辑
   demo/
     demo_builder.py   # 自动生成示例图片与标定
@@ -41,9 +42,15 @@ app.py                # 顶层启动入口
   - 点击落点。
   - 拖动修正。
   - 鼠标滚轮缩放、工具栏整体放大缩小、适配窗口。
+  - 关键点检查表（每个点当前有多少视角完成、是否已生成 3D）。
   - `visible / occluded / absent`。
   - 撤销/重做、复制上一帧、插值。
   - 多视角同步骨架显示。
+- **页面 / 工作区**
+  - `Project` 页面：项目概览、相机数量、帧数、页面结构。
+  - `Annotation` 页面：多视角标注 + 关键点检查器 + 实时详情。
+  - `Calibration` 页面：标定工作区和状态面板。
+  - `Export/QC` 页面：QC 预览与导出入口。
 - **实时 3D**
   - 至少两个视角标注后实时三角化。
   - 重投影到全部视角。

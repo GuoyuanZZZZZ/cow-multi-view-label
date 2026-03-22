@@ -1,0 +1,6862 @@
+{
+  "0": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 198.75,
+            "y": 430.25,
+            "visibility": "visible"
+          },
+          {
+            "x": 198.75,
+            "y": 370.625,
+            "visibility": "visible"
+          },
+          {
+            "x": 198.75,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 198.75,
+            "y": 261.5,
+            "visibility": "visible"
+          },
+          {
+            "x": 154.3796766988453,
+            "y": 358.9916122666147,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 154.3796766988453,
+            "y": 303.2893090285937,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 761.25,
+            "y": 430.25,
+            "visibility": "visible"
+          },
+          {
+            "x": 761.25,
+            "y": 370.625,
+            "visibility": "visible"
+          },
+          {
+            "x": 761.25,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 761.25,
+            "y": 261.5,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 805.6203233011547,
+            "y": 358.9916122666147,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 805.6203233011547,
+            "y": 303.2893090285937,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 351.48505687537704,
+            "y": 571.6186799810228,
+            "visibility": "visible"
+          },
+          {
+            "x": 341.9777361483906,
+            "y": 543.6128442540343,
+            "visibility": "visible"
+          },
+          {
+            "x": 332.72727272727275,
+            "y": 516.3636363636364,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 283.2795281495587,
+            "y": 510.7285237274043,
+            "visibility": "visible"
+          },
+          {
+            "x": 389.62999034545135,
+            "y": 493.46953373843945,
+            "visibility": "visible"
+          },
+          {
+            "x": 268.5859486287582,
+            "y": 477.90420789306063,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 608.514943124623,
+            "y": 571.6186799810228,
+            "visibility": "visible"
+          },
+          {
+            "x": 618.0222638516094,
+            "y": 543.6128442540343,
+            "visibility": "visible"
+          },
+          {
+            "x": 627.2727272727273,
+            "y": 516.3636363636364,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 570.3700096545487,
+            "y": 493.46953373843945,
+            "visibility": "visible"
+          },
+          {
+            "x": 676.7204718504413,
+            "y": 510.7285237274043,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 691.4140513712418,
+            "y": 477.90420789306063,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 341.9777361483906,
+            "y": 175.55347398307575,
+            "visibility": "visible"
+          },
+          {
+            "x": 332.72727272727275,
+            "y": 123.63636363636363,
+            "visibility": "visible"
+          },
+          {
+            "x": 320.36392097306543,
+            "y": 54.24854293398943,
+            "visibility": "visible"
+          },
+          {
+            "x": 283.2795281495587,
+            "y": 144.19560406491587,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 268.5859486287582,
+            "y": 83.99396165448258,
+            "visibility": "visible"
+          },
+          {
+            "x": 382.9647578522108,
+            "y": 70.81968015424022,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 618.0222638516094,
+            "y": 175.55347398307575,
+            "visibility": "visible"
+          },
+          {
+            "x": 627.2727272727273,
+            "y": 123.63636363636363,
+            "visibility": "visible"
+          },
+          {
+            "x": 639.6360790269346,
+            "y": 54.24854293398943,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 676.7204718504413,
+            "y": 144.19560406491587,
+            "visibility": "visible"
+          },
+          {
+            "x": 577.0352421477892,
+            "y": 70.81968015424022,
+            "visibility": "visible"
+          },
+          {
+            "x": 691.4140513712418,
+            "y": 83.99396165448258,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.0,
+          0.98,
+          0.0
+        ],
+        [
+          0.0,
+          0.45,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.52,
+          0.0
+        ],
+        [
+          -0.35,
+          0.35,
+          0.25
+        ],
+        [
+          0.35,
+          0.35,
+          0.25
+        ],
+        [
+          -0.35,
+          -0.15,
+          0.25
+        ],
+        [
+          0.35,
+          -0.15,
+          0.25
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "1": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 207.604269316549,
+            "y": 429.0084746379496,
+            "visibility": "visible"
+          },
+          {
+            "x": 207.604269316549,
+            "y": 370.1822624367924,
+            "visibility": "visible"
+          },
+          {
+            "x": 207.604269316549,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 207.604269316549,
+            "y": 261.7342665153082,
+            "visibility": "visible"
+          },
+          {
+            "x": 163.53277234771764,
+            "y": 358.6539052090541,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 163.53277234771764,
+            "y": 303.4340406246911,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 771.4267797755788,
+            "y": 429.9504001240795,
+            "visibility": "visible"
+          },
+          {
+            "x": 771.4267797755788,
+            "y": 370.61587965873656,
+            "visibility": "visible"
+          },
+          {
+            "x": 771.4267797755788,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 771.4267797755788,
+            "y": 261.2308012616243,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 815.690115453423,
+            "y": 358.9846561214865,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 815.690115453423,
+            "y": 303.2922902336486,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 362.5349211563297,
+            "y": 564.0707027953149,
+            "visibility": "visible"
+          },
+          {
+            "x": 353.93067918411344,
+            "y": 535.7879465234256,
+            "visibility": "visible"
+          },
+          {
+            "x": 345.52805624414657,
+            "y": 508.16792637254434,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 295.48628853491425,
+            "y": 503.1057342522694,
+            "visibility": "visible"
+          },
+          {
+            "x": 401.1519165320556,
+            "y": 486.0235128408997,
+            "visibility": "visible"
+          },
+          {
+            "x": 281.78092443299374,
+            "y": 469.8973156120712,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 620.7293852472529,
+            "y": 568.0169533453046,
+            "visibility": "visible"
+          },
+          {
+            "x": 631.0662746205422,
+            "y": 539.945721041092,
+            "visibility": "visible"
+          },
+          {
+            "x": 641.1647172016491,
+            "y": 512.5220235081083,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 583.3225127280941,
+            "y": 489.9801222650172,
+            "visibility": "visible"
+          },
+          {
+            "x": 689.568454782617,
+            "y": 507.15615898231204,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 705.1809783551605,
+            "y": 474.15106721078877,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 353.93067918411344,
+            "y": 169.6372110446441,
+            "visibility": "visible"
+          },
+          {
+            "x": 345.52805624414657,
+            "y": 117.6129460742568,
+            "visibility": "visible"
+          },
+          {
+            "x": 334.2487966533956,
+            "y": 47.77818211883334,
+            "visibility": "visible"
+          },
+          {
+            "x": 295.48628853491425,
+            "y": 138.4656915785239,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 281.78092443299374,
+            "y": 78.17243186444622,
+            "visibility": "visible"
+          },
+          {
+            "x": 395.36834315979166,
+            "y": 65.14301571101598,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 631.0662746205422,
+            "y": 172.7808287802477,
+            "visibility": "visible"
+          },
+          {
+            "x": 641.1647172016491,
+            "y": 120.81297940657095,
+            "visibility": "visible"
+          },
+          {
+            "x": 654.7262242442351,
+            "y": 51.02376690090114,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 689.568454782617,
+            "y": 141.5103223284045,
+            "visibility": "visible"
+          },
+          {
+            "x": 590.9234869345222,
+            "y": 68.1589060232877,
+            "visibility": "visible"
+          },
+          {
+            "x": 705.1809783551605,
+            "y": 81.26518505536202,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.08179867419903805,
+          0.9775129937368516,
+          0.03973386615901225
+        ],
+        [
+          0.08179867419903805,
+          0.45,
+          0.03973386615901225
+        ],
+        [
+          0.08179867419903805,
+          0.0,
+          0.03973386615901225
+        ],
+        [
+          0.08179867419903805,
+          -0.5224870062631484,
+          0.03973386615901225
+        ],
+        [
+          -0.2682013258009619,
+          0.35,
+          0.28973386615901225
+        ],
+        [
+          0.43179867419903806,
+          0.35,
+          0.28973386615901225
+        ],
+        [
+          -0.2682013258009619,
+          -0.15,
+          0.28973386615901225
+        ],
+        [
+          0.43179867419903806,
+          -0.15,
+          0.28973386615901225
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "2": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 215.30639407771088,
+            "y": 427.3247925768899,
+            "visibility": "visible"
+          },
+          {
+            "x": 215.30639407771088,
+            "y": 369.77924950534447,
+            "visibility": "visible"
+          },
+          {
+            "x": 215.30639407771088,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 215.30639407771088,
+            "y": 261.3939608924083,
+            "visibility": "visible"
+          },
+          {
+            "x": 171.5116919565786,
+            "y": 358.34644890774257,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 171.5116919565786,
+            "y": 303.56580761096745,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 780.517805941978,
+            "y": 429.0766208609689,
+            "visibility": "visible"
+          },
+          {
+            "x": 780.517805941978,
+            "y": 370.59178028364727,
+            "visibility": "visible"
+          },
+          {
+            "x": 780.517805941978,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 780.517805941978,
+            "y": 260.4373532488113,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 824.6718116352489,
+            "y": 358.96627524988685,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 824.6718116352489,
+            "y": 303.3001677500485,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 372.172237055309,
+            "y": 556.7750976325431,
+            "visibility": "visible"
+          },
+          {
+            "x": 364.42115940258066,
+            "y": 528.4951403167054,
+            "visibility": "visible"
+          },
+          {
+            "x": 356.7576420845778,
+            "y": 500.53464858224106,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 306.21646676979583,
+            "y": 496.0009977730963,
+            "visibility": "visible"
+          },
+          {
+            "x": 411.2525460963724,
+            "y": 479.0827218170127,
+            "visibility": "visible"
+          },
+          {
+            "x": 293.37519126520084,
+            "y": 462.4401378469903,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 631.6905552785772,
+            "y": 564.1878354168085,
+            "visibility": "visible"
+          },
+          {
+            "x": 642.6516012172121,
+            "y": 536.2958403998741,
+            "visibility": "visible"
+          },
+          {
+            "x": 653.4963754379339,
+            "y": 508.69971588606484,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 594.8397099474386,
+            "y": 486.506851812984,
+            "visibility": "visible"
+          },
+          {
+            "x": 700.9646996681935,
+            "y": 503.6005197549287,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 717.3835222582675,
+            "y": 470.4168453435999,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 364.42115940258066,
+            "y": 164.12325283542586,
+            "visibility": "visible"
+          },
+          {
+            "x": 356.7576420845778,
+            "y": 112.00288672021333,
+            "visibility": "visible"
+          },
+          {
+            "x": 346.3224013926339,
+            "y": 41.03174608133236,
+            "visibility": "visible"
+          },
+          {
+            "x": 306.21646676979583,
+            "y": 133.12519012596115,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 293.37519126520084,
+            "y": 72.75058016649237,
+            "visibility": "visible"
+          },
+          {
+            "x": 406.2357377459274,
+            "y": 59.85537228681534,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 642.6516012172121,
+            "y": 170.0212203724766,
+            "visibility": "visible"
+          },
+          {
+            "x": 653.4963754379339,
+            "y": 118.00378351220479,
+            "visibility": "visible"
+          },
+          {
+            "x": 668.2755479245855,
+            "y": 47.11483220489964,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 700.9646996681935,
+            "y": 138.83761285996835,
+            "visibility": "visible"
+          },
+          {
+            "x": 603.2663105679007,
+            "y": 65.51137186666529,
+            "visibility": "visible"
+          },
+          {
+            "x": 717.3835222582675,
+            "y": 78.55016366134879,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.15459245076743425,
+          0.9702066049512299,
+          0.07788366846173012
+        ],
+        [
+          0.15459245076743425,
+          0.45,
+          0.07788366846173012
+        ],
+        [
+          0.15459245076743425,
+          0.0,
+          0.07788366846173012
+        ],
+        [
+          0.15459245076743425,
+          -0.5297933950487701,
+          0.07788366846173012
+        ],
+        [
+          -0.19540754923256573,
+          0.35,
+          0.3278836684617301
+        ],
+        [
+          0.5045924507674342,
+          0.35,
+          0.3278836684617301
+        ],
+        [
+          -0.19540754923256573,
+          -0.15,
+          0.3278836684617301
+        ],
+        [
+          0.5045924507674342,
+          -0.15,
+          0.3278836684617301
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "3": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 221.02119816321186,
+            "y": 425.3174129559326,
+            "visibility": "visible"
+          },
+          {
+            "x": 221.02119816321186,
+            "y": 369.4429837362988,
+            "visibility": "visible"
+          },
+          {
+            "x": 221.02119816321186,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 221.02119816321186,
+            "y": 260.5074671682699,
+            "visibility": "visible"
+          },
+          {
+            "x": 177.46516420143274,
+            "y": 358.0898771572973,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 177.46516420143274,
+            "y": 303.6757669325869,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 787.551360733521,
+            "y": 427.65430394801655,
+            "visibility": "visible"
+          },
+          {
+            "x": 787.551360733521,
+            "y": 370.54007547138974,
+            "visibility": "visible"
+          },
+          {
+            "x": 787.551360733521,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 787.551360733521,
+            "y": 259.1873857100508,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 831.592308901272,
+            "y": 358.92683881769483,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 831.592308901272,
+            "y": 303.31706907813077,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 379.34042334488134,
+            "y": 550.1270003913144,
+            "visibility": "visible"
+          },
+          {
+            "x": 372.2970874639896,
+            "y": 522.1340808424362,
+            "visibility": "visible"
+          },
+          {
+            "x": 365.1882042230364,
+            "y": 493.8806509320091,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 314.30702951794035,
+            "y": 489.8037472078531,
+            "visibility": "visible"
+          },
+          {
+            "x": 418.80953136179187,
+            "y": 473.0278379516956,
+            "visibility": "visible"
+          },
+          {
+            "x": 302.1193261858435,
+            "y": 455.9398369890556,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 640.2559851285445,
+            "y": 560.1626898631266,
+            "visibility": "visible"
+          },
+          {
+            "x": 651.5488816713346,
+            "y": 532.6785260414746,
+            "visibility": "visible"
+          },
+          {
+            "x": 662.9574952065235,
+            "y": 504.91273520199036,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 603.7108616132563,
+            "y": 483.0643100045455,
+            "visibility": "visible"
+          },
+          {
+            "x": 709.6854531584117,
+            "y": 500.0765355479715,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 726.7082950252444,
+            "y": 466.7171935291602,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 372.2970874639896,
+            "y": 159.31377139395389,
+            "visibility": "visible"
+          },
+          {
+            "x": 365.1882042230364,
+            "y": 107.11254697561671,
+            "visibility": "visible"
+          },
+          {
+            "x": 355.28315007174547,
+            "y": 34.37876628153589,
+            "visibility": "visible"
+          },
+          {
+            "x": 314.30702951794035,
+            "y": 128.4668293630256,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 302.1193261858435,
+            "y": 68.02444001614808,
+            "visibility": "visible"
+          },
+          {
+            "x": 414.36426813298726,
+            "y": 55.24565956719897,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 651.5488816713346,
+            "y": 167.28623473917665,
+            "visibility": "visible"
+          },
+          {
+            "x": 662.9574952065235,
+            "y": 115.22055106686372,
+            "visibility": "visible"
+          },
+          {
+            "x": 678.8713339111227,
+            "y": 42.59429464663816,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 709.6854531584117,
+            "y": 136.18869789581282,
+            "visibility": "visible"
+          },
+          {
+            "x": 612.765301639676,
+            "y": 62.88817796380721,
+            "visibility": "visible"
+          },
+          {
+            "x": 726.7082950252444,
+            "y": 75.86027693692526,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.21036774620197413,
+          0.9585351095099057,
+          0.11292849467900708
+        ],
+        [
+          0.21036774620197413,
+          0.45,
+          0.11292849467900708
+        ],
+        [
+          0.21036774620197413,
+          0.0,
+          0.11292849467900708
+        ],
+        [
+          0.21036774620197413,
+          -0.5414648904900943,
+          0.11292849467900708
+        ],
+        [
+          -0.13963225379802585,
+          0.35,
+          0.36292849467900706
+        ],
+        [
+          0.560367746201974,
+          0.35,
+          0.36292849467900706
+        ],
+        [
+          -0.13963225379802585,
+          -0.15,
+          0.36292849467900706
+        ],
+        [
+          0.560367746201974,
+          -0.15,
+          0.36292849467900706
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "4": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 224.14608187951475,
+            "y": 423.11317450385303,
+            "visibility": "visible"
+          },
+          {
+            "x": 224.14608187951475,
+            "y": 369.19395546757914,
+            "visibility": "visible"
+          },
+          {
+            "x": 224.14608187951475,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 224.14608187951475,
+            "y": 259.13332294525577,
+            "visibility": "visible"
+          },
+          {
+            "x": 180.77777477260838,
+            "y": 357.899846475468,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 180.77777477260838,
+            "y": 303.75720865337087,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 791.7803950469574,
+            "y": 425.7513234614988,
+            "visibility": "visible"
+          },
+          {
+            "x": 791.7803950469574,
+            "y": 370.45258204913614,
+            "visibility": "visible"
+          },
+          {
+            "x": 791.7803950469574,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 791.7803950469574,
+            "y": 257.57604996437846,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 835.7048022232011,
+            "y": 358.86010381485085,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 835.7048022232011,
+            "y": 303.34566979363535,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 383.2503277061858,
+            "y": 544.4689956064822,
+            "visibility": "visible"
+          },
+          {
+            "x": 376.706931019584,
+            "y": 517.0293942944375,
+            "visibility": "visible"
+          },
+          {
+            "x": 369.9140535967023,
+            "y": 488.54360057401084,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 318.89710430549314,
+            "y": 484.83035893522447,
+            "visibility": "visible"
+          },
+          {
+            "x": 422.99380075331305,
+            "y": 468.16827106762616,
+            "visibility": "visible"
+          },
+          {
+            "x": 307.09049782082036,
+            "y": 450.7261911190096,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 645.5404822397456,
+            "y": 556.0147360749413,
+            "visibility": "visible"
+          },
+          {
+            "x": 656.8278099361052,
+            "y": 529.1382342195245,
+            "visibility": "visible"
+          },
+          {
+            "x": 668.5578554796662,
+            "y": 501.20756725418767,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 609.0185037987617,
+            "y": 479.6948169325699,
+            "visibility": "visible"
+          },
+          {
+            "x": 714.805865940393,
+            "y": 496.62751877070025,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 732.1642142291187,
+            "y": 463.0975229563062,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 376.706931019584,
+            "y": 155.45421068454036,
+            "visibility": "visible"
+          },
+          {
+            "x": 369.9140535967023,
+            "y": 103.19009451071045,
+            "visibility": "visible"
+          },
+          {
+            "x": 360.1632485536876,
+            "y": 28.167806335768546,
+            "visibility": "visible"
+          },
+          {
+            "x": 318.89710430549314,
+            "y": 124.72842367099304,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 307.09049782082036,
+            "y": 64.23378145824097,
+            "visibility": "visible"
+          },
+          {
+            "x": 418.8675136455187,
+            "y": 51.548006207327944,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 656.8278099361052,
+            "y": 164.60948444562277,
+            "visibility": "visible"
+          },
+          {
+            "x": 668.5578554796662,
+            "y": 112.49744669743046,
+            "visibility": "visible"
+          },
+          {
+            "x": 685.4177539707724,
+            "y": 37.59546414873478,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 714.805865940393,
+            "y": 133.59613458781035,
+            "visibility": "visible"
+          },
+          {
+            "x": 618.4378405614925,
+            "y": 60.32153036993742,
+            "visibility": "visible"
+          },
+          {
+            "x": 732.1642142291187,
+            "y": 73.2285417604675,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.24298447534082818,
+          0.9432241844694512,
+          0.14347121817990457
+        ],
+        [
+          0.24298447534082818,
+          0.45,
+          0.14347121817990457
+        ],
+        [
+          0.24298447534082818,
+          0.0,
+          0.14347121817990457
+        ],
+        [
+          0.24298447534082818,
+          -0.5567758155305488,
+          0.14347121817990457
+        ],
+        [
+          -0.1070155246591718,
+          0.35,
+          0.3934712181799046
+        ],
+        [
+          0.5929844753408282,
+          0.35,
+          0.3934712181799046
+        ],
+        [
+          -0.1070155246591718,
+          -0.15,
+          0.3934712181799046
+        ],
+        [
+          0.5929844753408282,
+          -0.15,
+          0.3934712181799046
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "5": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 224.35617368314564,
+            "y": 420.839657535363,
+            "visibility": "visible"
+          },
+          {
+            "x": 224.35617368314564,
+            "y": 369.04515895559877,
+            "visibility": "visible"
+          },
+          {
+            "x": 224.35617368314564,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 224.35617368314564,
+            "y": 257.35579435003376,
+            "visibility": "visible"
+          },
+          {
+            "x": 181.11582215525874,
+            "y": 357.78629283375307,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 181.11582215525874,
+            "y": 303.8058744998201,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 792.7728326245706,
+            "y": 423.4753665928886,
+            "visibility": "visible"
+          },
+          {
+            "x": 792.7728326245706,
+            "y": 370.3270828816268,
+            "visibility": "visible"
+          },
+          {
+            "x": 792.7728326245706,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 792.7728326245706,
+            "y": 255.71842365413266,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 836.5794300269544,
+            "y": 358.76437627102626,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 836.5794300269544,
+            "y": 303.3866958838459,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 383.4553874668974,
+            "y": 540.0734315816172,
+            "visibility": "visible"
+          },
+          {
+            "x": 377.1794749343968,
+            "y": 513.4138856670739,
+            "visibility": "visible"
+          },
+          {
+            "x": 370.4352473976755,
+            "y": 484.7649772028077,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 319.508153584899,
+            "y": 481.3077608215559,
+            "visibility": "visible"
+          },
+          {
+            "x": 423.3478827103136,
+            "y": 464.7260597331545,
+            "visibility": "visible"
+          },
+          {
+            "x": 307.77698760620484,
+            "y": 447.0350063342782,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 647.0094980493147,
+            "y": 551.8659833416008,
+            "visibility": "visible"
+          },
+          {
+            "x": 657.9566208746426,
+            "y": 525.7568890453089,
+            "visibility": "visible"
+          },
+          {
+            "x": 669.7330702067895,
+            "y": 497.6698353970984,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 610.2361804621876,
+            "y": 476.47636908655045,
+            "visibility": "visible"
+          },
+          {
+            "x": 715.7994087981025,
+            "y": 493.3332880417097,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 733.1890303822543,
+            "y": 459.64147574512424,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 377.1794749343968,
+            "y": 152.72059033165343,
+            "visibility": "visible"
+          },
+          {
+            "x": 370.4352473976755,
+            "y": 100.41300425258387,
+            "visibility": "visible"
+          },
+          {
+            "x": 360.4166261338777,
+            "y": 22.709532461882702,
+            "visibility": "visible"
+          },
+          {
+            "x": 319.508153584899,
+            "y": 122.0805506080035,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 307.77698760620484,
+            "y": 61.550050813348605,
+            "visibility": "visible"
+          },
+          {
+            "x": 419.25778281566335,
+            "y": 48.92991903000632,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 657.9566208746426,
+            "y": 162.05291082319647,
+            "visibility": "visible"
+          },
+          {
+            "x": 669.7330702067895,
+            "y": 109.8973990845723,
+            "visibility": "visible"
+          },
+          {
+            "x": 687.2509484816842,
+            "y": 32.314260038748216,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 715.7994087981025,
+            "y": 131.11992114276248,
+            "visibility": "visible"
+          },
+          {
+            "x": 619.7216972380842,
+            "y": 57.87075448588388,
+            "visibility": "visible"
+          },
+          {
+            "x": 733.1890303822543,
+            "y": 70.71577137595298,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.24885198943794123,
+          0.9252257889916216,
+          0.16829419696157932
+        ],
+        [
+          0.24885198943794123,
+          0.45,
+          0.16829419696157932
+        ],
+        [
+          0.24885198943794123,
+          0.0,
+          0.16829419696157932
+        ],
+        [
+          0.24885198943794123,
+          -0.5747742110083784,
+          0.16829419696157932
+        ],
+        [
+          -0.10114801056205874,
+          0.35,
+          0.4182941969615793
+        ],
+        [
+          0.5988519894379412,
+          0.35,
+          0.4182941969615793
+        ],
+        [
+          -0.10114801056205874,
+          -0.15,
+          0.4182941969615793
+        ],
+        [
+          0.5988519894379412,
+          -0.15,
+          0.4182941969615793
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "6": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 221.62438331429985,
+            "y": 418.619681809453,
+            "visibility": "visible"
+          },
+          {
+            "x": 221.62438331429985,
+            "y": 369.0017302138639,
+            "visibility": "visible"
+          },
+          {
+            "x": 221.62438331429985,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 221.62438331429985,
+            "y": 255.28058109657337,
+            "visibility": "visible"
+          },
+          {
+            "x": 178.44771362774623,
+            "y": 357.7531490853321,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 178.44771362774623,
+            "y": 303.8200789634291,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 790.46260122946,
+            "y": 420.96693418266125,
+            "visibility": "visible"
+          },
+          {
+            "x": 790.46260122946,
+            "y": 370.1680230412737,
+            "visibility": "visible"
+          },
+          {
+            "x": 790.46260122946,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 790.46260122946,
+            "y": 253.74019071174894,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 834.154376200373,
+            "y": 358.643042866559,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 834.154376200373,
+            "y": 303.43869591433184,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 379.89515403046937,
+            "y": 537.1301067693378,
+            "visibility": "visible"
+          },
+          {
+            "x": 373.66415416207974,
+            "y": 511.4195022630648,
+            "visibility": "visible"
+          },
+          {
+            "x": 366.69937193643494,
+            "y": 482.6811352179457,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 316.084567576214,
+            "y": 479.36459866298867,
+            "visibility": "visible"
+          },
+          {
+            "x": 419.8256031128205,
+            "y": 462.8271589030426,
+            "visibility": "visible"
+          },
+          {
+            "x": 304.1204226618594,
+            "y": 444.99940939665663,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 644.5366341429956,
+            "y": 547.8876579544616,
+            "visibility": "visible"
+          },
+          {
+            "x": 654.8561016591186,
+            "y": 522.6561173396512,
+            "visibility": "visible"
+          },
+          {
+            "x": 666.4017194779323,
+            "y": 494.42658665278884,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 607.2816439673171,
+            "y": 473.5247777411733,
+            "visibility": "visible"
+          },
+          {
+            "x": 712.5917764427669,
+            "y": 490.31234847358763,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 729.7067045921226,
+            "y": 456.47315583837417,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 373.66415416207974,
+            "y": 151.21267329243042,
+            "visibility": "visible"
+          },
+          {
+            "x": 366.69937193643494,
+            "y": 98.8814895428252,
+            "visibility": "visible"
+          },
+          {
+            "x": 355.9699056391005,
+            "y": 18.263653385137673,
+            "visibility": "visible"
+          },
+          {
+            "x": 316.084567576214,
+            "y": 120.61991088395266,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 304.1204226618594,
+            "y": 60.07003986815249,
+            "visibility": "visible"
+          },
+          {
+            "x": 415.48739059330956,
+            "y": 47.48603688170664,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 654.8561016591186,
+            "y": 159.7084737002729,
+            "visibility": "visible"
+          },
+          {
+            "x": 666.4017194779323,
+            "y": 107.51378113493905,
+            "visibility": "visible"
+          },
+          {
+            "x": 684.2106557543948,
+            "y": 27.004278009787413,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 712.5917764427669,
+            "y": 128.8491357028023,
+            "visibility": "visible"
+          },
+          {
+            "x": 616.5316155534758,
+            "y": 55.62388426379442,
+            "visibility": "visible"
+          },
+          {
+            "x": 729.7067045921226,
+            "y": 68.41219739565813,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.22732435670642043,
+          0.9056589761334163,
+          0.18640781719344526
+        ],
+        [
+          0.22732435670642043,
+          0.45,
+          0.18640781719344526
+        ],
+        [
+          0.22732435670642043,
+          0.0,
+          0.18640781719344526
+        ],
+        [
+          0.22732435670642043,
+          -0.5943410238665837,
+          0.18640781719344526
+        ],
+        [
+          -0.12267564329357955,
+          0.35,
+          0.43640781719344524
+        ],
+        [
+          0.5773243567064203,
+          0.35,
+          0.43640781719344524
+        ],
+        [
+          -0.12267564329357955,
+          -0.15,
+          0.43640781719344524
+        ],
+        [
+          0.5773243567064203,
+          -0.15,
+          0.43640781719344524
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "7": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 216.21954793115725,
+            "y": 416.56743912472297,
+            "visibility": "visible"
+          },
+          {
+            "x": 216.21954793115725,
+            "y": 369.0610474010522,
+            "visibility": "visible"
+          },
+          {
+            "x": 216.21954793115725,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 216.21954793115725,
+            "y": 253.03061445454904,
+            "visibility": "visible"
+          },
+          {
+            "x": 173.04212124210875,
+            "y": 357.79841836648217,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 173.04212124210875,
+            "y": 303.80067784293624,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 785.1525974238782,
+            "y": 418.3885419276313,
+            "visibility": "visible"
+          },
+          {
+            "x": 785.1525974238782,
+            "y": 369.9862579248632,
+            "visibility": "visible"
+          },
+          {
+            "x": 785.1525974238782,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 785.1525974238782,
+            "y": 251.76768217808728,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 828.7386501808498,
+            "y": 358.5043804222532,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 828.7386501808498,
+            "y": 303.4981226761772,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 372.90463153486587,
+            "y": 535.739223516839,
+            "visibility": "visible"
+          },
+          {
+            "x": 366.5313961138643,
+            "y": 511.0754876993892,
+            "visibility": "visible"
+          },
+          {
+            "x": 359.101277372858,
+            "y": 482.3217270715321,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 308.9941148227475,
+            "y": 479.0294171841017,
+            "visibility": "visible"
+          },
+          {
+            "x": 412.79250277735395,
+            "y": 462.4996062715711,
+            "visibility": "visible"
+          },
+          {
+            "x": 296.51554676365794,
+            "y": 444.6483240006103,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 638.4180335948103,
+            "y": 544.2934938921563,
+            "visibility": "visible"
+          },
+          {
+            "x": 647.9024173682828,
+            "y": 519.9929287936553,
+            "visibility": "visible"
+          },
+          {
+            "x": 658.9677384665885,
+            "y": 491.64173992282196,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 600.5199003247997,
+            "y": 470.9895641595163,
+            "visibility": "visible"
+          },
+          {
+            "x": 705.5635686878745,
+            "y": 487.7176849889029,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 722.1295783139458,
+            "y": 453.7526808129869,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 366.5313961138643,
+            "y": 150.95257013409858,
+            "visibility": "visible"
+          },
+          {
+            "x": 359.101277372858,
+            "y": 98.61734338057389,
+            "visibility": "visible"
+          },
+          {
+            "x": 347.2341404584372,
+            "y": 15.029271240662297,
+            "visibility": "visible"
+          },
+          {
+            "x": 308.9941148227475,
+            "y": 120.36796105018814,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 296.51554676365794,
+            "y": 59.814778023705856,
+            "visibility": "visible"
+          },
+          {
+            "x": 407.9484373446455,
+            "y": 47.23700110530024,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 647.9024173682828,
+            "y": 157.6948852502797,
+            "visibility": "visible"
+          },
+          {
+            "x": 658.9677384665885,
+            "y": 105.46706465530639,
+            "visibility": "visible"
+          },
+          {
+            "x": 676.6590713638199,
+            "y": 21.964764773195782,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 705.5635686878745,
+            "y": 126.89877425737913,
+            "visibility": "visible"
+          },
+          {
+            "x": 609.261922308073,
+            "y": 53.69451232467105,
+            "visibility": "visible"
+          },
+          {
+            "x": 722.1295783139458,
+            "y": 66.43423567873279,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.18077147043458114,
+          0.8857403155480407,
+          0.19708994599769203
+        ],
+        [
+          0.18077147043458114,
+          0.45,
+          0.19708994599769203
+        ],
+        [
+          0.18077147043458114,
+          0.0,
+          0.19708994599769203
+        ],
+        [
+          0.18077147043458114,
+          -0.6142596844519593,
+          0.19708994599769203
+        ],
+        [
+          -0.16922852956541884,
+          0.35,
+          0.44708994599769203
+        ],
+        [
+          0.5307714704345812,
+          0.35,
+          0.44708994599769203
+        ],
+        [
+          -0.16922852956541884,
+          -0.15,
+          0.44708994599769203
+        ],
+        [
+          0.5307714704345812,
+          -0.15,
+          0.44708994599769203
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "8": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 208.68425592631883,
+            "y": 414.7855510474646,
+            "visibility": "visible"
+          },
+          {
+            "x": 208.68425592631883,
+            "y": 369.21321311983354,
+            "visibility": "visible"
+          },
+          {
+            "x": 208.68425592631883,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 208.68425592631883,
+            "y": 250.7415073146861,
+            "visibility": "visible"
+          },
+          {
+            "x": 165.445522988162,
+            "y": 357.9145424237431,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 165.445522988162,
+            "y": 303.7509103898244,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 777.4700379711489,
+            "y": 415.9116892877353,
+            "visibility": "visible"
+          },
+          {
+            "x": 777.4700379711489,
+            "y": 369.797910688275,
+            "visibility": "visible"
+          },
+          {
+            "x": 777.4700379711489,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 777.4700379711489,
+            "y": 249.9186536601519,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 820.9670259376585,
+            "y": 358.3606864719411,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 820.9670259376585,
+            "y": 303.5597057977395,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 363.18790640229423,
+            "y": 535.9095424858236,
+            "visibility": "visible"
+          },
+          {
+            "x": 356.5344808168503,
+            "y": 512.312989116643,
+            "visibility": "visible"
+          },
+          {
+            "x": 348.44252629787354,
+            "y": 483.614654068641,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 298.9897722472137,
+            "y": 480.2351409535757,
+            "visibility": "visible"
+          },
+          {
+            "x": 402.9884042867503,
+            "y": 463.67787921996467,
+            "visibility": "visible"
+          },
+          {
+            "x": 285.7693400068142,
+            "y": 445.91131331448634,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 629.3410456286482,
+            "y": 541.3261179628696,
+            "visibility": "visible"
+          },
+          {
+            "x": 637.8797128007396,
+            "y": 517.9492550537196,
+            "visibility": "visible"
+          },
+          {
+            "x": 648.2692465905728,
+            "y": 489.50515456357004,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 590.7169999751736,
+            "y": 469.0439998049901,
+            "visibility": "visible"
+          },
+          {
+            "x": 695.5027141085411,
+            "y": 485.72657015062634,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 711.3065485102636,
+            "y": 451.66550348438165,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 356.5344808168503,
+            "y": 151.88822246122314,
+            "visibility": "visible"
+          },
+          {
+            "x": 348.44252629787354,
+            "y": 99.5675770015014,
+            "visibility": "visible"
+          },
+          {
+            "x": 335.075294225094,
+            "y": 13.138246681173143,
+            "visibility": "visible"
+          },
+          {
+            "x": 298.9897722472137,
+            "y": 121.27428172248071,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 285.7693400068142,
+            "y": 60.73305313684608,
+            "visibility": "visible"
+          },
+          {
+            "x": 397.4327850620682,
+            "y": 48.132871546272554,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 637.8797128007396,
+            "y": 156.1497006840289,
+            "visibility": "visible"
+          },
+          {
+            "x": 648.2692465905728,
+            "y": 103.89678632800513,
+            "visibility": "visible"
+          },
+          {
+            "x": 665.4432731802241,
+            "y": 17.522078984035772,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 695.5027141085411,
+            "y": 125.40208937438501,
+            "visibility": "visible"
+          },
+          {
+            "x": 598.7362933316535,
+            "y": 52.214215763254856,
+            "visibility": "visible"
+          },
+          {
+            "x": 711.3065485102636,
+            "y": 64.91672244523858,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.114318156658953,
+          0.8667082530762287,
+          0.19991472060830104
+        ],
+        [
+          0.114318156658953,
+          0.45,
+          0.19991472060830104
+        ],
+        [
+          0.114318156658953,
+          0.0,
+          0.19991472060830104
+        ],
+        [
+          0.114318156658953,
+          -0.6332917469237713,
+          0.19991472060830104
+        ],
+        [
+          -0.23568184334104697,
+          0.35,
+          0.44991472060830107
+        ],
+        [
+          0.464318156658953,
+          0.35,
+          0.44991472060830107
+        ],
+        [
+          -0.23568184334104697,
+          -0.15,
+          0.44991472060830107
+        ],
+        [
+          0.464318156658953,
+          -0.15,
+          0.44991472060830107
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "9": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 199.7919722418324,
+            "y": 413.36237938958607,
+            "visibility": "visible"
+          },
+          {
+            "x": 199.7919722418324,
+            "y": 369.4419100268742,
+            "visibility": "visible"
+          },
+          {
+            "x": 199.7919722418324,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 199.7919722418324,
+            "y": 248.5560126333387,
+            "visibility": "visible"
+          },
+          {
+            "x": 156.4387958509975,
+            "y": 358.08905786074763,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 156.4387958509975,
+            "y": 303.6761180596796,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 768.283634398648,
+            "y": 413.7034959998959,
+            "visibility": "visible"
+          },
+          {
+            "x": 768.283634398648,
+            "y": 369.6225551311001,
+            "visibility": "visible"
+          },
+          {
+            "x": 768.283634398648,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 768.283634398648,
+            "y": 248.29497889622883,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 811.7166088484084,
+            "y": 358.2268947788416,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 811.7166088484084,
+            "y": 303.61704509478216,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 351.7558622992243,
+            "y": 537.5617922604856,
+            "visibility": "visible"
+          },
+          {
+            "x": 344.7359939899943,
+            "y": 514.975394490041,
+            "visibility": "visible"
+          },
+          {
+            "x": 335.85374214677427,
+            "y": 486.3967852639317,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 287.1360308542671,
+            "y": 482.8291509373906,
+            "visibility": "visible"
+          },
+          {
+            "x": 391.45515394747383,
+            "y": 466.21275482838973,
+            "visibility": "visible"
+          },
+          {
+            "x": 273.0227108940003,
+            "y": 448.6290468641,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 618.3099452700194,
+            "y": 539.2376251902017,
+            "visibility": "visible"
+          },
+          {
+            "x": 625.8897036253766,
+            "y": 516.7165019478999,
+            "visibility": "visible"
+          },
+          {
+            "x": 635.4817116000384,
+            "y": 488.2165440850192,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 578.9515959726211,
+            "y": 467.870386466312,
+            "visibility": "visible"
+          },
+          {
+            "x": 683.5138530236719,
+            "y": 484.52550999202515,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 698.4252290499719,
+            "y": 450.4067005829781,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 344.7359939899943,
+            "y": 153.90121876865095,
+            "visibility": "visible"
+          },
+          {
+            "x": 335.85374214677427,
+            "y": 101.61229770538358,
+            "visibility": "visible"
+          },
+          {
+            "x": 320.74207668454596,
+            "y": 12.651446736931007,
+            "visibility": "visible"
+          },
+          {
+            "x": 287.1360308542671,
+            "y": 123.22415194316173,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 273.0227108940003,
+            "y": 62.70902162314911,
+            "visibility": "visible"
+          },
+          {
+            "x": 385.05537587510406,
+            "y": 50.060562297693025,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 625.8897036253766,
+            "y": 155.2176384688681,
+            "visibility": "visible"
+          },
+          {
+            "x": 635.4817116000384,
+            "y": 102.94972512212368,
+            "visibility": "visible"
+          },
+          {
+            "x": 651.8043138796564,
+            "y": 14.006058290514204,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 683.5138530236719,
+            "y": 124.49927425373585,
+            "visibility": "visible"
+          },
+          {
+            "x": 586.1124260917568,
+            "y": 51.32140429369849,
+            "visibility": "visible"
+          },
+          {
+            "x": 698.4252290499719,
+            "y": 64.00149112537883,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.0352800020149668,
+          0.8497461101821809,
+          0.19476952617563903
+        ],
+        [
+          0.0352800020149668,
+          0.45,
+          0.19476952617563903
+        ],
+        [
+          0.0352800020149668,
+          0.0,
+          0.19476952617563903
+        ],
+        [
+          0.0352800020149668,
+          -0.6502538898178191,
+          0.19476952617563903
+        ],
+        [
+          -0.3147199979850332,
+          0.35,
+          0.44476952617563903
+        ],
+        [
+          0.38528000201496676,
+          0.35,
+          0.44476952617563903
+        ],
+        [
+          -0.3147199979850332,
+          -0.15,
+          0.44476952617563903
+        ],
+        [
+          0.38528000201496676,
+          -0.15,
+          0.44476952617563903
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "10": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 190.48216991735114,
+            "y": 412.369138929256,
+            "visibility": "visible"
+          },
+          {
+            "x": 190.48216991735114,
+            "y": 369.7256721080162,
+            "visibility": "visible"
+          },
+          {
+            "x": 190.48216991735114,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 190.48216991735114,
+            "y": 246.6168985692019,
+            "visibility": "visible"
+          },
+          {
+            "x": 146.97160965520857,
+            "y": 358.305571422264,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 146.97160965520857,
+            "y": 303.5833265333154,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 758.5978587758914,
+            "y": 411.9146966263034,
+            "visibility": "visible"
+          },
+          {
+            "x": 758.5978587758914,
+            "y": 369.48102926289954,
+            "visibility": "visible"
+          },
+          {
+            "x": 758.5978587758914,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 758.5978587758914,
+            "y": 246.97793241663834,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 802.0003374260396,
+            "y": 358.11890766907607,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 802.0003374260396,
+            "y": 303.6633252846817,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 339.8300626647251,
+            "y": 540.5374290054298,
+            "visibility": "visible"
+          },
+          {
+            "x": 332.40368700118745,
+            "y": 518.8337023630629,
+            "visibility": "visible"
+          },
+          {
+            "x": 322.6846963301034,
+            "y": 490.4297639788798,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 274.7045157906993,
+            "y": 486.58827411937364,
+            "visibility": "visible"
+          },
+          {
+            "x": 379.4343209733639,
+            "y": 469.88599821481444,
+            "visibility": "visible"
+          },
+          {
+            "x": 259.63962931789996,
+            "y": 452.56872930051844,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 606.5367203368661,
+            "y": 538.2661729700194,
+            "visibility": "visible"
+          },
+          {
+            "x": 613.2301449928857,
+            "y": 516.4767701037794,
+            "visibility": "visible"
+          },
+          {
+            "x": 621.9882977352491,
+            "y": 487.9659661021536,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 566.4958848835076,
+            "y": 467.6421519354385,
+            "visibility": "visible"
+          },
+          {
+            "x": 670.8965738289502,
+            "y": 484.29194048752754,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 684.881068682859,
+            "y": 450.16191962692767,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 332.40368700118745,
+            "y": 156.81841521774027,
+            "visibility": "visible"
+          },
+          {
+            "x": 322.6846963301034,
+            "y": 104.57632581833843,
+            "visibility": "visible"
+          },
+          {
+            "x": 305.7518816985885,
+            "y": 13.558066237640332,
+            "visibility": "visible"
+          },
+          {
+            "x": 274.7045157906993,
+            "y": 126.0498166068115,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 259.63962931789996,
+            "y": 65.57342617138397,
+            "visibility": "visible"
+          },
+          {
+            "x": 372.145707674881,
+            "y": 52.85482057687523,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 613.2301449928857,
+            "y": 155.03638157921134,
+            "visibility": "visible"
+          },
+          {
+            "x": 621.9882977352491,
+            "y": 102.76556342968814,
+            "visibility": "visible"
+          },
+          {
+            "x": 637.2427277325255,
+            "y": 11.723358547214104,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 670.8965738289502,
+            "y": 124.32370429675012,
+            "visibility": "visible"
+          },
+          {
+            "x": 572.7542636349368,
+            "y": 51.14779005745021,
+            "visibility": "visible"
+          },
+          {
+            "x": 684.881068682859,
+            "y": 63.823519500724274,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.047641990718871347,
+          0.8359085107562453,
+          0.18185948536513635
+        ],
+        [
+          -0.047641990718871347,
+          0.45,
+          0.18185948536513635
+        ],
+        [
+          -0.047641990718871347,
+          0.0,
+          0.18185948536513635
+        ],
+        [
+          -0.047641990718871347,
+          -0.6640914892437547,
+          0.18185948536513635
+        ],
+        [
+          -0.3976419907188713,
+          0.35,
+          0.43185948536513635
+        ],
+        [
+          0.30235800928112866,
+          0.35,
+          0.43185948536513635
+        ],
+        [
+          -0.3976419907188713,
+          -0.15,
+          0.43185948536513635
+        ],
+        [
+          0.30235800928112866,
+          -0.15,
+          0.43185948536513635
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "11": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 181.77334591977092,
+            "y": 411.8567031854177,
+            "visibility": "visible"
+          },
+          {
+            "x": 181.77334591977092,
+            "y": 370.03961711494935,
+            "visibility": "visible"
+          },
+          {
+            "x": 181.77334591977092,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 181.77334591977092,
+            "y": 245.05797946891994,
+            "visibility": "visible"
+          },
+          {
+            "x": 138.0745494157734,
+            "y": 358.5450873445631,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 138.0745494157734,
+            "y": 303.4806768523301,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 749.4408458616856,
+            "y": 410.67006325643774,
+            "visibility": "visible"
+          },
+          {
+            "x": 749.4408458616856,
+            "y": 369.39318625426836,
+            "visibility": "visible"
+          },
+          {
+            "x": 749.4408458616856,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 749.4408458616856,
+            "y": 246.02610907554327,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 792.854016277533,
+            "y": 358.0518787131206,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 792.854016277533,
+            "y": 303.6920519800912,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 328.718483513183,
+            "y": 544.6126623279551,
+            "visibility": "visible"
+          },
+          {
+            "x": 320.8829222899898,
+            "y": 523.6061247300389,
+            "visibility": "visible"
+          },
+          {
+            "x": 310.3693894529322,
+            "y": 495.4201509959746,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 263.04612454359665,
+            "y": 491.23790254656046,
+            "visibility": "visible"
+          },
+          {
+            "x": 368.2419833580241,
+            "y": 474.42909995012405,
+            "visibility": "visible"
+          },
+          {
+            "x": 247.0709905404856,
+            "y": 457.44376140673046,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 595.3090980298884,
+            "y": 538.6109171870646,
+            "visibility": "visible"
+          },
+          {
+            "x": 601.2565197748854,
+            "y": 517.3826246747359,
+            "visibility": "visible"
+          },
+          {
+            "x": 609.2327554354173,
+            "y": 488.91283204712045,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 554.6799781397775,
+            "y": 468.50455656152974,
+            "visibility": "visible"
+          },
+          {
+            "x": 659.0068558206418,
+            "y": 485.17450832772704,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 672.1289156364893,
+            "y": 451.0868814957703,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 320.8829222899898,
+            "y": 160.42675701955528,
+            "visibility": "visible"
+          },
+          {
+            "x": 310.3693894529322,
+            "y": 108.24399888548581,
+            "visibility": "visible"
+          },
+          {
+            "x": 291.7398698445576,
+            "y": 15.778437504332658,
+            "visibility": "visible"
+          },
+          {
+            "x": 263.04612454359665,
+            "y": 129.544857899625,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 247.0709905404856,
+            "y": 69.11789057002207,
+            "visibility": "visible"
+          },
+          {
+            "x": 360.1146885471075,
+            "y": 56.31221956901163,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 601.2565197748854,
+            "y": 155.72128175430188,
+            "visibility": "visible"
+          },
+          {
+            "x": 609.2327554354173,
+            "y": 103.46146030354944,
+            "visibility": "visible"
+          },
+          {
+            "x": 623.3554838874155,
+            "y": 10.930183807930518,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 659.0068558206418,
+            "y": 124.98711452264484,
+            "visibility": "visible"
+          },
+          {
+            "x": 560.0869085815797,
+            "y": 51.80382801315642,
+            "visibility": "visible"
+          },
+          {
+            "x": 672.1289156364893,
+            "y": 64.4960267463756,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.1253192621470862,
+          0.826055809709403,
+          0.16169928076391804
+        ],
+        [
+          -0.1253192621470862,
+          0.45,
+          0.16169928076391804
+        ],
+        [
+          -0.1253192621470862,
+          0.0,
+          0.16169928076391804
+        ],
+        [
+          -0.1253192621470862,
+          -0.673944190290597,
+          0.16169928076391804
+        ],
+        [
+          -0.4753192621470862,
+          0.35,
+          0.41169928076391804
+        ],
+        [
+          0.2246807378529138,
+          0.35,
+          0.41169928076391804
+        ],
+        [
+          -0.4753192621470862,
+          -0.15,
+          0.41169928076391804
+        ],
+        [
+          0.2246807378529138,
+          -0.15,
+          0.41169928076391804
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "12": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 174.65746714525488,
+            "y": 411.85237882567566,
+            "visibility": "visible"
+          },
+          {
+            "x": 174.65746714525488,
+            "y": 370.35762700204964,
+            "visibility": "visible"
+          },
+          {
+            "x": 174.65746714525488,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 174.65746714525488,
+            "y": 243.99362215217678,
+            "visibility": "visible"
+          },
+          {
+            "x": 130.75257132441976,
+            "y": 358.78767496763436,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 130.75257132441976,
+            "y": 303.3767107281567,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 741.759731918233,
+            "y": 410.06156458206726,
+            "visibility": "visible"
+          },
+          {
+            "x": 741.759731918233,
+            "y": 369.37582166545906,
+            "visibility": "visible"
+          },
+          {
+            "x": 741.759731918233,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 741.759731918233,
+            "y": 245.4754923638704,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 785.2307468388444,
+            "y": 358.03862832661605,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 785.2307468388444,
+            "y": 303.6977307171646,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 319.6734445144625,
+            "y": 549.517199237573,
+            "visibility": "visible"
+          },
+          {
+            "x": 311.45588796279526,
+            "y": 528.9808322923617,
+            "visibility": "visible"
+          },
+          {
+            "x": 300.27660528491145,
+            "y": 501.04286194633653,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 253.44989012083283,
+            "y": 496.47417338777825,
+            "visibility": "visible"
+          },
+          {
+            "x": 359.13067491266304,
+            "y": 479.54500294647715,
+            "visibility": "visible"
+          },
+          {
+            "x": 236.703746570328,
+            "y": 462.9366195170304,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 585.8504443908428,
+            "y": 540.4078250048875,
+            "visibility": "visible"
+          },
+          {
+            "x": 591.2415349408635,
+            "y": 519.5372893331191,
+            "visibility": "visible"
+          },
+          {
+            "x": 598.570320596894,
+            "y": 491.1653521442067,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 544.7540273656834,
+            "y": 470.55580551228417,
+            "visibility": "visible"
+          },
+          {
+            "x": 649.1163256505426,
+            "y": 487.273765534917,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 661.5326211894486,
+            "y": 453.2873078183921,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 311.45588796279526,
+            "y": 164.49047570964038,
+            "visibility": "visible"
+          },
+          {
+            "x": 300.27660528491145,
+            "y": 112.37639692322409,
+            "visibility": "visible"
+          },
+          {
+            "x": 280.28253691469666,
+            "y": 19.170733882989396,
+            "visibility": "visible"
+          },
+          {
+            "x": 253.44989012083283,
+            "y": 133.4808676468564,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 236.703746570328,
+            "y": 73.11155452844397,
+            "visibility": "visible"
+          },
+          {
+            "x": 350.3072721311442,
+            "y": 60.20743269147778,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 591.2415349408635,
+            "y": 157.35038453647329,
+            "visibility": "visible"
+          },
+          {
+            "x": 598.570320596894,
+            "y": 105.11694459063804,
+            "visibility": "visible"
+          },
+          {
+            "x": 611.6624992087732,
+            "y": 11.806871492643438,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 649.1163256505426,
+            "y": 126.56508806144745,
+            "visibility": "visible"
+          },
+          {
+            "x": 549.4494990746407,
+            "y": 53.36445875756914,
+            "visibility": "visible"
+          },
+          {
+            "x": 661.5326211894486,
+            "y": 66.09587934066337,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.18920062382698205,
+          0.8208006002719643,
+          0.1350926361102302
+        ],
+        [
+          -0.18920062382698205,
+          0.45,
+          0.1350926361102302
+        ],
+        [
+          -0.18920062382698205,
+          0.0,
+          0.1350926361102302
+        ],
+        [
+          -0.18920062382698205,
+          -0.6791993997280357,
+          0.1350926361102302
+        ],
+        [
+          -0.539200623826982,
+          0.35,
+          0.3850926361102302
+        ],
+        [
+          0.16079937617301793,
+          0.35,
+          0.3850926361102302
+        ],
+        [
+          -0.539200623826982,
+          -0.15,
+          0.3850926361102302
+        ],
+        [
+          0.16079937617301793,
+          -0.15,
+          0.3850926361102302
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "13": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 169.98497262882722,
+            "y": 412.35725491160025,
+            "visibility": "visible"
+          },
+          {
+            "x": 169.98497262882722,
+            "y": 370.65484863494373,
+            "visibility": "visible"
+          },
+          {
+            "x": 169.98497262882722,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 169.98497262882722,
+            "y": 243.50775946178777,
+            "visibility": "visible"
+          },
+          {
+            "x": 125.86898708614393,
+            "y": 359.0143778489938,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 125.86898708614393,
+            "y": 303.27955235043123,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 736.3323575033601,
+            "y": 410.14393959298536,
+            "visibility": "visible"
+          },
+          {
+            "x": 736.3323575033601,
+            "y": 369.44091960951795,
+            "visibility": "visible"
+          },
+          {
+            "x": 736.3323575033601,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 736.3323575033601,
+            "y": 245.3408742279255,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 779.9117614202708,
+            "y": 358.08830212011026,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 779.9117614202708,
+            "y": 303.67644194852414,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 313.74686445193703,
+            "y": 554.9564517699476,
+            "visibility": "visible"
+          },
+          {
+            "x": 305.2009021057802,
+            "y": 534.6403023663006,
+            "visibility": "visible"
+          },
+          {
+            "x": 293.5599001013877,
+            "y": 506.96637562173134,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 247.001909400154,
+            "y": 501.9877048738379,
+            "visibility": "visible"
+          },
+          {
+            "x": 353.15161173982676,
+            "y": 484.9313343675474,
+            "visibility": "visible"
+          },
+          {
+            "x": 229.7093630307222,
+            "y": 468.72346933742364,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 579.1867318273922,
+            "y": 543.7088473632485,
+            "visibility": "visible"
+          },
+          {
+            "x": 584.2456142072098,
+            "y": 522.9770011221472,
+            "visibility": "visible"
+          },
+          {
+            "x": 591.1304566721731,
+            "y": 494.76217328838163,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 537.7610837535275,
+            "y": 473.83023246171706,
+            "visibility": "visible"
+          },
+          {
+            "x": 642.2825427668026,
+            "y": 490.62497320516036,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 654.2266214037727,
+            "y": 456.8009874717553,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 305.2009021057802,
+            "y": 168.76949815853868,
+            "visibility": "visible"
+          },
+          {
+            "x": 293.5599001013877,
+            "y": 116.72986920817971,
+            "visibility": "visible"
+          },
+          {
+            "x": 272.7141677844978,
+            "y": 23.541656152281746,
+            "visibility": "visible"
+          },
+          {
+            "x": 247.001909400154,
+            "y": 137.62528918822778,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 229.7093630307222,
+            "y": 77.31896952013452,
+            "visibility": "visible"
+          },
+          {
+            "x": 343.8546905281278,
+            "y": 64.31072480464377,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 584.2456142072098,
+            "y": 159.9510880954104,
+            "visibility": "visible"
+          },
+          {
+            "x": 591.1304566721731,
+            "y": 107.76041973447903,
+            "visibility": "visible"
+          },
+          {
+            "x": 603.4414655418389,
+            "y": 14.436602323262605,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 642.2825427668026,
+            "y": 129.08413003904056,
+            "visibility": "visible"
+          },
+          {
+            "x": 541.9597257220651,
+            "y": 55.85637762340713,
+            "visibility": "visible"
+          },
+          {
+            "x": 654.2266214037727,
+            "y": 68.65055224706236,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.23225362531769048,
+          0.8204696259135563,
+          0.10310027436429284
+        ],
+        [
+          -0.23225362531769048,
+          0.45,
+          0.10310027436429284
+        ],
+        [
+          -0.23225362531769048,
+          0.0,
+          0.10310027436429284
+        ],
+        [
+          -0.23225362531769048,
+          -0.6795303740864437,
+          0.10310027436429284
+        ],
+        [
+          -0.5822536253176904,
+          0.35,
+          0.3531002743642928
+        ],
+        [
+          0.1177463746823095,
+          0.35,
+          0.3531002743642928
+        ],
+        [
+          -0.5822536253176904,
+          -0.15,
+          0.3531002743642928
+        ],
+        [
+          0.1177463746823095,
+          -0.15,
+          0.3531002743642928
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "14": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 168.35522712947164,
+            "y": 413.3448974692908,
+            "visibility": "visible"
+          },
+          {
+            "x": 168.35522712947164,
+            "y": 370.91024804421306,
+            "visibility": "visible"
+          },
+          {
+            "x": 168.35522712947164,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 168.35522712947164,
+            "y": 243.64407065524722,
+            "visibility": "visible"
+          },
+          {
+            "x": 124.0349457713562,
+            "y": 359.20916053610955,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 124.0349457713562,
+            "y": 303.19607405595303,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 733.6994496534899,
+            "y": 410.9320421191293,
+            "visibility": "visible"
+          },
+          {
+            "x": 733.6994496534899,
+            "y": 369.59427826223396,
+            "visibility": "visible"
+          },
+          {
+            "x": 733.6994496534899,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 733.6994496534899,
+            "y": 245.6177812450162,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 777.4378601948047,
+            "y": 358.2053194240516,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 777.4378601948047,
+            "y": 303.62629167540643,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 311.6613565336431,
+            "y": 560.6351716585455,
+            "visibility": "visible"
+          },
+          {
+            "x": 302.8674548474172,
+            "y": 540.285247758008,
+            "visibility": "visible"
+          },
+          {
+            "x": 291.0236909959494,
+            "y": 512.8776530778423,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 244.460000785239,
+            "y": 507.4869153535225,
+            "visibility": "visible"
+          },
+          {
+            "x": 351.03254536997804,
+            "y": 490.3032064952827,
+            "visibility": "visible"
+          },
+          {
+            "x": 226.90840232275673,
+            "y": 474.49850418512915,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 576.0346320386059,
+            "y": 548.4666814333671,
+            "visibility": "visible"
+          },
+          {
+            "x": 581.009341451806,
+            "y": 527.6570970655068,
+            "visibility": "visible"
+          },
+          {
+            "x": 587.7028139846327,
+            "y": 499.6577970428318,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 534.4314947067271,
+            "y": 478.2850620493375,
+            "visibility": "visible"
+          },
+          {
+            "x": 639.2413027279074,
+            "y": 495.18454806181535,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 651.0009589266484,
+            "y": 461.5835301273819,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 302.8674548474172,
+            "y": 173.03753875922163,
+            "visibility": "visible"
+          },
+          {
+            "x": 291.0236909959494,
+            "y": 121.07434851288005,
+            "visibility": "visible"
+          },
+          {
+            "x": 269.9601905255787,
+            "y": 28.66059424335947,
+            "visibility": "visible"
+          },
+          {
+            "x": 244.460000785239,
+            "y": 141.75894588904916,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 226.90840232275673,
+            "y": 81.5177942606943,
+            "visibility": "visible"
+          },
+          {
+            "x": 341.5427264654908,
+            "y": 68.4052273794778,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 581.009341451806,
+            "y": 163.48962356657614,
+            "visibility": "visible"
+          },
+          {
+            "x": 587.7028139846327,
+            "y": 111.3584467671673,
+            "visibility": "visible"
+          },
+          {
+            "x": 599.5882771237808,
+            "y": 18.790175632704518,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 639.2413027279074,
+            "y": 132.51147969745728,
+            "visibility": "visible"
+          },
+          {
+            "x": 538.4012501370532,
+            "y": 59.247935539589434,
+            "visibility": "visible"
+          },
+          {
+            "x": 651.0009589266484,
+            "y": 72.12777081886128,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.24973872927448207,
+          0.8250834650167364,
+          0.06699763003118102
+        ],
+        [
+          -0.24973872927448207,
+          0.45,
+          0.06699763003118102
+        ],
+        [
+          -0.24973872927448207,
+          0.0,
+          0.06699763003118102
+        ],
+        [
+          -0.24973872927448207,
+          -0.6749165349832636,
+          0.06699763003118102
+        ],
+        [
+          -0.599738729274482,
+          0.35,
+          0.31699763003118103
+        ],
+        [
+          0.10026127072551791,
+          0.35,
+          0.31699763003118103
+        ],
+        [
+          -0.599738729274482,
+          -0.15,
+          0.31699763003118103
+        ],
+        [
+          0.10026127072551791,
+          -0.15,
+          0.31699763003118103
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "15": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 170.03076865589605,
+            "y": 414.7620675585391,
+            "visibility": "visible"
+          },
+          {
+            "x": 170.03076865589605,
+            "y": 371.1088416224794,
+            "visibility": "visible"
+          },
+          {
+            "x": 170.03076865589605,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 170.03076865589605,
+            "y": 244.39926215027435,
+            "visibility": "visible"
+          },
+          {
+            "x": 125.52283068138928,
+            "y": 359.36060651467653,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 125.52283068138928,
+            "y": 303.1311686365672,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 734.1182361038043,
+            "y": 412.39934629525527,
+            "visibility": "visible"
+          },
+          {
+            "x": 734.1182361038043,
+            "y": 369.8345348248925,
+            "visibility": "visible"
+          },
+          {
+            "x": 734.1182361038043,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 734.1182361038043,
+            "y": 246.28423021228025,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 778.0624889925707,
+            "y": 358.3886285886261,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 778.0624889925707,
+            "y": 303.5477306048745,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 313.7161027845265,
+            "y": 566.2798728504317,
+            "visibility": "visible"
+          },
+          {
+            "x": 304.783063475275,
+            "y": 545.6557740092727,
+            "visibility": "visible"
+          },
+          {
+            "x": 293.02279002237924,
+            "y": 518.5043159562015,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 246.1601805004383,
+            "y": 512.7186329426038,
+            "visibility": "visible"
+          },
+          {
+            "x": 353.0869513158475,
+            "y": 495.413345314771,
+            "visibility": "visible"
+          },
+          {
+            "x": 228.66874709415652,
+            "y": 479.99561316451343,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 576.7223808391308,
+            "y": 554.5269656684109,
+            "visibility": "visible"
+          },
+          {
+            "x": 581.8764661430089,
+            "y": 533.4432781153383,
+            "visibility": "visible"
+          },
+          {
+            "x": 588.6553040603264,
+            "y": 505.7132557747873,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 535.1073333319849,
+            "y": 483.79213438681063,
+            "visibility": "visible"
+          },
+          {
+            "x": 640.3296074022148,
+            "y": 500.8215621321173,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 652.2187191951789,
+            "y": 467.49924911805033,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 304.783063475275,
+            "y": 177.09809603602073,
+            "visibility": "visible"
+          },
+          {
+            "x": 293.02279002237924,
+            "y": 125.20965101069913,
+            "visibility": "visible"
+          },
+          {
+            "x": 272.4131096333872,
+            "y": 34.2760284094029,
+            "visibility": "visible"
+          },
+          {
+            "x": 246.1601805004383,
+            "y": 145.69153303929616,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 228.66874709415652,
+            "y": 85.51454887653239,
+            "visibility": "visible"
+          },
+          {
+            "x": 343.71309627403093,
+            "y": 72.30229820463936,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 581.8764661430089,
+            "y": 167.86444988108073,
+            "visibility": "visible"
+          },
+          {
+            "x": 588.6553040603264,
+            "y": 115.80889175757306,
+            "visibility": "visible"
+          },
+          {
+            "x": 600.5173907900479,
+            "y": 24.71841979811967,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 640.3296074022148,
+            "y": 136.74872085605807,
+            "visibility": "visible"
+          },
+          {
+            "x": 539.1428329740714,
+            "y": 63.442699207467285,
+            "visibility": "visible"
+          },
+          {
+            "x": 652.2187191951789,
+            "y": 76.42888205217048,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.2397310686657846,
+          0.8343552514128352,
+          0.028224001611973443
+        ],
+        [
+          -0.2397310686657846,
+          0.45,
+          0.028224001611973443
+        ],
+        [
+          -0.2397310686657846,
+          0.0,
+          0.028224001611973443
+        ],
+        [
+          -0.2397310686657846,
+          -0.6656447485871648,
+          0.028224001611973443
+        ],
+        [
+          -0.5897310686657846,
+          0.35,
+          0.27822400161197347
+        ],
+        [
+          0.11026893133421536,
+          0.35,
+          0.27822400161197347
+        ],
+        [
+          -0.5897310686657846,
+          -0.15,
+          0.27822400161197347
+        ],
+        [
+          0.11026893133421536,
+          -0.15,
+          0.27822400161197347
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "16": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 174.89253158444092,
+            "y": 416.53177826735885,
+            "visibility": "visible"
+          },
+          {
+            "x": 174.89253158444092,
+            "y": 371.24320410957597,
+            "visibility": "visible"
+          },
+          {
+            "x": 174.89253158444092,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 174.89253158444092,
+            "y": 245.72109790210558,
+            "visibility": "visible"
+          },
+          {
+            "x": 130.2208270919802,
+            "y": 359.4630637823327,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 130.2208270919802,
+            "y": 303.0872583790003,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 737.5375223836093,
+            "y": 414.477337472276,
+            "visibility": "visible"
+          },
+          {
+            "x": 737.5375223836093,
+            "y": 370.1526189066194,
+            "visibility": "visible"
+          },
+          {
+            "x": 737.5375223836093,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 737.5375223836093,
+            "y": 247.30194111687808,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 781.7265716609214,
+            "y": 358.631291950566,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 781.7265716609214,
+            "y": 303.443732021186,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 319.74293108147845,
+            "y": 571.6572399078991,
+            "visibility": "visible"
+          },
+          {
+            "x": 310.8057199995486,
+            "y": 550.5474164061851,
+            "visibility": "visible"
+          },
+          {
+            "x": 299.41043752206593,
+            "y": 523.6315922585148,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 251.96875124963773,
+            "y": 517.4837096898775,
+            "visibility": "visible"
+          },
+          {
+            "x": 359.1679688950532,
+            "y": 500.0673189046065,
+            "visibility": "visible"
+          },
+          {
+            "x": 234.85268701260082,
+            "y": 485.0049434563207,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 581.1518130852558,
+            "y": 561.629263571703,
+            "visibility": "visible"
+          },
+          {
+            "x": 586.7540013022631,
+            "y": 540.109408431627,
+            "visibility": "visible"
+          },
+          {
+            "x": 593.891095415895,
+            "y": 512.6934728191496,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 539.7032830067621,
+            "y": 490.1358829438151,
+            "visibility": "visible"
+          },
+          {
+            "x": 645.4458679260772,
+            "y": 507.31561822594347,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 657.7727616796834,
+            "y": 474.31856680206806,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 310.8057199995486,
+            "y": 180.79657793536984,
+            "visibility": "visible"
+          },
+          {
+            "x": 299.41043752206593,
+            "y": 128.97793053238746,
+            "visibility": "visible"
+          },
+          {
+            "x": 279.8726659640643,
+            "y": 40.132314163976446,
+            "visibility": "visible"
+          },
+          {
+            "x": 251.96875124963773,
+            "y": 149.27335473880416,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 234.85268701260082,
+            "y": 89.15665676289998,
+            "visibility": "visible"
+          },
+          {
+            "x": 350.2127188605211,
+            "y": 75.85324305281375,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 586.7540013022631,
+            "y": 172.90458984083287,
+            "visibility": "visible"
+          },
+          {
+            "x": 593.891095415895,
+            "y": 120.93898566987946,
+            "visibility": "visible"
+          },
+          {
+            "x": 606.1126082467781,
+            "y": 31.953428238761944,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 645.4458679260772,
+            "y": 141.63018494748053,
+            "visibility": "visible"
+          },
+          {
+            "x": 544.0958906366095,
+            "y": 68.27765789518654,
+            "visibility": "visible"
+          },
+          {
+            "x": 657.7727616796834,
+            "y": 81.38696811753289,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.203332347891895,
+          0.8477085103309111,
+          -0.011674828685516017
+        ],
+        [
+          -0.203332347891895,
+          0.45,
+          -0.011674828685516017
+        ],
+        [
+          -0.203332347891895,
+          0.0,
+          -0.011674828685516017
+        ],
+        [
+          -0.203332347891895,
+          -0.6522914896690889,
+          -0.011674828685516017
+        ],
+        [
+          -0.553332347891895,
+          0.35,
+          0.238325171314484
+        ],
+        [
+          0.14666765210810498,
+          0.35,
+          0.238325171314484
+        ],
+        [
+          -0.553332347891895,
+          -0.15,
+          0.238325171314484
+        ],
+        [
+          0.14666765210810498,
+          -0.15,
+          0.238325171314484
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "17": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 182.44670844474047,
+            "y": 418.5584717169393,
+            "visibility": "visible"
+          },
+          {
+            "x": 182.44670844474047,
+            "y": 371.3139478767734,
+            "visibility": "visible"
+          },
+          {
+            "x": 182.44670844474047,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 182.44670844474047,
+            "y": 247.5119787943613,
+            "visibility": "visible"
+          },
+          {
+            "x": 137.63939619028736,
+            "y": 359.5170068683342,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 137.63939619028736,
+            "y": 303.06413991357107,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 743.5952169190705,
+            "y": 417.0560288926818,
+            "visibility": "visible"
+          },
+          {
+            "x": 743.5952169190705,
+            "y": 370.5317089537389,
+            "visibility": "visible"
+          },
+          {
+            "x": 743.5952169190705,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 743.5952169190705,
+            "y": 248.61699904688538,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 788.0561578303004,
+            "y": 358.9204574113274,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 788.0561578303004,
+            "y": 303.319803966574,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 329.1207743181384,
+            "y": 576.5861527203679,
+            "visibility": "visible"
+          },
+          {
+            "x": 320.3305421174241,
+            "y": 554.8201588411104,
+            "visibility": "visible"
+          },
+          {
+            "x": 309.54440029622015,
+            "y": 528.1119796371468,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 261.2886308003674,
+            "y": 521.645794969281,
+            "visibility": "visible"
+          },
+          {
+            "x": 368.6754294841882,
+            "y": 504.1320730151181,
+            "visibility": "visible"
+          },
+          {
+            "x": 244.82257001958305,
+            "y": 489.3823511224392,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 588.8061669252116,
+            "y": 569.4175982763173,
+            "visibility": "visible"
+          },
+          {
+            "x": 595.1140408504297,
+            "y": 547.3430772406124,
+            "visibility": "visible"
+          },
+          {
+            "x": 602.8495141081839,
+            "y": 520.272646034502,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 547.708484232668,
+            "y": 497.0187218653101,
+            "visibility": "visible"
+          },
+          {
+            "x": 654.0519931783914,
+            "y": 514.362293609069,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 667.086804485705,
+            "y": 481.7232534195291,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 320.3305421174241,
+            "y": 184.02712082340403,
+            "visibility": "visible"
+          },
+          {
+            "x": 309.54440029622015,
+            "y": 132.27078057842698,
+            "visibility": "visible"
+          },
+          {
+            "x": 291.5621869212174,
+            "y": 45.984732311862444,
+            "visibility": "visible"
+          },
+          {
+            "x": 261.2886308003674,
+            "y": 152.40191869687678,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 244.82257001958305,
+            "y": 92.33931593166983,
+            "visibility": "visible"
+          },
+          {
+            "x": 360.4002209893815,
+            "y": 78.95598596496836,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 595.1140408504297,
+            "y": 178.37383533858335,
+            "visibility": "visible"
+          },
+          {
+            "x": 602.8495141081839,
+            "y": 126.50928099526598,
+            "visibility": "visible"
+          },
+          {
+            "x": 615.7343592307493,
+            "y": 40.119382433516876,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 654.0519931783914,
+            "y": 146.92704292801747,
+            "visibility": "visible"
+          },
+          {
+            "x": 552.7153659867627,
+            "y": 73.52699892008249,
+            "visibility": "visible"
+          },
+          {
+            "x": 667.086804485705,
+            "y": 86.77065534806809,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.14454956043607722,
+          0.8643130008068965,
+          -0.05110822040536625
+        ],
+        [
+          -0.14454956043607722,
+          0.45,
+          -0.05110822040536625
+        ],
+        [
+          -0.14454956043607722,
+          0.0,
+          -0.05110822040536625
+        ],
+        [
+          -0.14454956043607722,
+          -0.6356869991931035,
+          -0.05110822040536625
+        ],
+        [
+          -0.49454956043607723,
+          0.35,
+          0.19889177959463375
+        ],
+        [
+          0.20545043956392275,
+          0.35,
+          0.19889177959463375
+        ],
+        [
+          -0.49454956043607723,
+          -0.15,
+          0.19889177959463375
+        ],
+        [
+          0.20545043956392275,
+          -0.15,
+          0.19889177959463375
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "18": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 191.88361122744942,
+            "y": 420.73458218359775,
+            "visibility": "visible"
+          },
+          {
+            "x": 191.88361122744942,
+            "y": 371.3290645310755,
+            "visibility": "visible"
+          },
+          {
+            "x": 191.88361122744942,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 191.88361122744942,
+            "y": 249.63770041334607,
+            "visibility": "visible"
+          },
+          {
+            "x": 146.97007860314324,
+            "y": 359.52853333280234,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 146.97007860314324,
+            "y": 303.0592000002276,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 751.6410374538079,
+            "y": 419.9863817872313,
+            "visibility": "visible"
+          },
+          {
+            "x": 751.6410374538079,
+            "y": 370.9478208152156,
+            "visibility": "visible"
+          },
+          {
+            "x": 751.6410374538079,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 751.6410374538079,
+            "y": 250.16031240317926,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 796.385676637728,
+            "y": 359.23781413777635,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 796.385676637728,
+            "y": 303.183793940953,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 340.8472487558297,
+            "y": 580.941952965334,
+            "visibility": "visible"
+          },
+          {
+            "x": 332.35192143888423,
+            "y": 558.3994184125822,
+            "visibility": "visible"
+          },
+          {
+            "x": 322.35278443629176,
+            "y": 531.8664923734614,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 273.1212331296246,
+            "y": 525.1322822353436,
+            "visibility": "visible"
+          },
+          {
+            "x": 380.61715890073367,
+            "y": 507.5368218265055,
+            "visibility": "visible"
+          },
+          {
+            "x": 257.50673491617977,
+            "y": 493.05062946404007,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 598.8040195967791,
+            "y": 577.4605597290282,
+            "visibility": "visible"
+          },
+          {
+            "x": 606.039724709787,
+            "y": 554.7598374918866,
+            "visibility": "visible"
+          },
+          {
+            "x": 614.553718394403,
+            "y": 528.048714975881,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 558.2316463106655,
+            "y": 504.0746905147114,
+            "visibility": "visible"
+          },
+          {
+            "x": 665.2198013911418,
+            "y": 521.5870365262391,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 679.1637995035435,
+            "y": 489.3205400162374,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 332.35192143888423,
+            "y": 186.73333392404209,
+            "visibility": "visible"
+          },
+          {
+            "x": 322.35278443629176,
+            "y": 135.03015078279628,
+            "visibility": "visible"
+          },
+          {
+            "x": 306.21992397330143,
+            "y": 51.610927814464674,
+            "visibility": "visible"
+          },
+          {
+            "x": 273.1212331296246,
+            "y": 155.02264789117282,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 257.50673491617977,
+            "y": 95.00639210733874,
+            "visibility": "visible"
+          },
+          {
+            "x": 373.2112353297177,
+            "y": 81.55591016224366,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 606.039724709787,
+            "y": 183.98151294773643,
+            "visibility": "visible"
+          },
+          {
+            "x": 614.553718394403,
+            "y": 132.22428436612282,
+            "visibility": "visible"
+          },
+          {
+            "x": 628.2846062933727,
+            "y": 48.75315084864974,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 665.2198013911418,
+            "y": 152.3577510417729,
+            "visibility": "visible"
+          },
+          {
+            "x": 564.0466790724931,
+            "y": 78.91217538413576,
+            "visibility": "visible"
+          },
+          {
+            "x": 679.1637995035435,
+            "y": 92.29437525013174,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          -0.06985387454973147,
+          0.8831363360455377,
+          -0.0885040886589705
+        ],
+        [
+          -0.06985387454973147,
+          0.45,
+          -0.0885040886589705
+        ],
+        [
+          -0.06985387454973147,
+          0.0,
+          -0.0885040886589705
+        ],
+        [
+          -0.06985387454973147,
+          -0.6168636639544623,
+          -0.0885040886589705
+        ],
+        [
+          -0.41985387454973144,
+          0.35,
+          0.1614959113410295
+        ],
+        [
+          0.2801461254502685,
+          0.35,
+          0.1614959113410295
+        ],
+        [
+          -0.41985387454973144,
+          -0.15,
+          0.1614959113410295
+        ],
+        [
+          0.2801461254502685,
+          -0.15,
+          0.1614959113410295
+        ]
+      ],
+      "qc": {}
+    }
+  },
+  "19": {
+    "0": {
+      "2d": {
+        "cam_left": [
+          {
+            "x": 202.1782345848231,
+            "y": 422.9474566340609,
+            "visibility": "visible"
+          },
+          {
+            "x": 202.1782345848231,
+            "y": 371.3022549628429,
+            "visibility": "visible"
+          },
+          {
+            "x": 202.1782345848231,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 202.1782345848231,
+            "y": 251.93994009125146,
+            "visibility": "visible"
+          },
+          {
+            "x": 157.18636446807216,
+            "y": 359.5080909634569,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 157.18636446807216,
+            "y": 303.06796101566135,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_right": [
+          {
+            "x": 760.7881651332684,
+            "y": 423.08577193372196,
+            "visibility": "visible"
+          },
+          {
+            "x": 760.7881651332684,
+            "y": 371.3711822292414,
+            "visibility": "visible"
+          },
+          {
+            "x": 760.7881651332684,
+            "y": 320.0,
+            "visibility": "visible"
+          },
+          {
+            "x": 760.7881651332684,
+            "y": 251.8484978362506,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 805.810582162105,
+            "y": 359.56064776754494,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 805.810582162105,
+            "y": 303.0454366710522,
+            "visibility": "visible"
+          }
+        ],
+        "cam_top": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fl": [
+          {
+            "x": 353.6568200172036,
+            "y": 584.65290886768,
+            "visibility": "visible"
+          },
+          {
+            "x": 345.57445053927484,
+            "y": 561.2691390507204,
+            "visibility": "visible"
+          },
+          {
+            "x": 336.4524709864246,
+            "y": 534.8775875729816,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 286.17720149906756,
+            "y": 527.9275718558744,
+            "visibility": "visible"
+          },
+          {
+            "x": 393.717929956098,
+            "y": 510.2664418604257,
+            "visibility": "visible"
+          },
+          {
+            "x": 271.5186118757251,
+            "y": 495.99260569571334,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          }
+        ],
+        "cam_ground_fr": [
+          {
+            "x": 609.9950930612051,
+            "y": 585.2800902560921,
+            "visibility": "visible"
+          },
+          {
+            "x": 618.314661400095,
+            "y": 561.9263919920695,
+            "visibility": "visible"
+          },
+          {
+            "x": 627.7048673670241,
+            "y": 535.5673276925927,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 570.0886378814828,
+            "y": 510.8915844494762,
+            "visibility": "visible"
+          },
+          {
+            "x": 677.7210513610921,
+            "y": 528.5677716341929,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 692.6813572398062,
+            "y": 496.6665180667608,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rl": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 345.57445053927484,
+            "y": 188.9030775347037,
+            "visibility": "visible"
+          },
+          {
+            "x": 336.4524709864246,
+            "y": 137.24314803693042,
+            "visibility": "visible"
+          },
+          {
+            "x": 322.2511282732272,
+            "y": 56.817582611466605,
+            "visibility": "visible"
+          },
+          {
+            "x": 286.17720149906756,
+            "y": 157.12381636132488,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 271.5186118757251,
+            "y": 97.14539956157026,
+            "visibility": "visible"
+          },
+          {
+            "x": 387.27545893041315,
+            "y": 83.64094153334386,
+            "visibility": "visible"
+          }
+        ],
+        "cam_ground_rr": [
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 618.314661400095,
+            "y": 189.4000145365598,
+            "visibility": "visible"
+          },
+          {
+            "x": 627.7048673670241,
+            "y": 137.75007089709393,
+            "visibility": "visible"
+          },
+          {
+            "x": 642.3248842658255,
+            "y": 57.334044721464295,
+            "visibility": "visible"
+          },
+          {
+            "x": null,
+            "y": null,
+            "visibility": "absent"
+          },
+          {
+            "x": 677.7210513610921,
+            "y": 157.60504291435228,
+            "visibility": "visible"
+          },
+          {
+            "x": 576.8183986834667,
+            "y": 84.11854030807598,
+            "visibility": "visible"
+          },
+          {
+            "x": 692.6813572398062,
+            "y": 97.63537754631741,
+            "visibility": "visible"
+          }
+        ]
+      },
+      "3d": [
+        [
+          0.012531752470543181,
+          0.9030081722310381,
+          -0.12237157818854379
+        ],
+        [
+          0.012531752470543181,
+          0.45,
+          -0.12237157818854379
+        ],
+        [
+          0.012531752470543181,
+          0.0,
+          -0.12237157818854379
+        ],
+        [
+          0.012531752470543181,
+          -0.5969918277689619,
+          -0.12237157818854379
+        ],
+        [
+          -0.3374682475294568,
+          0.35,
+          0.12762842181145623
+        ],
+        [
+          0.36253175247054314,
+          0.35,
+          0.12762842181145623
+        ],
+        [
+          -0.3374682475294568,
+          -0.15,
+          0.12762842181145623
+        ],
+        [
+          0.36253175247054314,
+          -0.15,
+          0.12762842181145623
+        ]
+      ],
+      "qc": {}
+    }
+  }
+}

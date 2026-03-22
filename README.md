@@ -107,7 +107,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-程序会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片、标定文件，以及一份可直接导入的参考答案 `reference_annotations.json`，开箱即用。
+仓库内直接提供 `demo_data/reference_annotations.json` 作为现成参考答案；运行程序后也会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片、标定文件，并保持这份参考标注可直接导入对比。
 默认示例相机布局为：
 - `cam_left`：牛身体正左侧；
 - `cam_right`：牛身体正右侧；

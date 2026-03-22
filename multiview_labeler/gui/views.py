@@ -49,12 +49,16 @@ class ImageView(pg.GraphicsLayoutWidget):
 
     def set_image(self, image_bgr: np.ndarray) -> None:
         rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
-        self.image_item.setImage(np.flipud(np.swapaxes(rgb, 0, 1)))
-        if not hasattr(self, "_image_rect"):
-            self._image_rect = QtCore.QRectF(0, 0, image_bgr.shape[1], image_bgr.shape[0])
-            self.view.setRange(self._image_rect)
-        else:
-            self._image_rect = QtCore.QRectF(0, 0, image_bgr.shape[1], image_bgr.shape[0])
+        self.image_item.setImage(rgb, axisOrder="row-major")
+        self._image_rect = QtCore.QRectF(0, 0, image_bgr.shape[1], image_bgr.shape[0])
+        self.image_item.setRect(self._image_rect)
+        if not hasattr(self, "_did_initial_fit"):
+            self.view.setRange(self._image_rect, padding=0.02)
+            self._did_initial_fit = True
+
+    def _event_view_pos(self, event: QtGui.QMouseEvent) -> QtCore.QPointF:
+        scene_pos = self.mapToScene(event.position().toPoint())
+        return self.view.mapSceneToView(scene_pos)
 
     def set_points(self, points: List[Keypoint2D], reprojected=None, anomalies: Optional[set] = None) -> None:
         self.current_points = points
@@ -115,7 +119,7 @@ class ImageView(pg.GraphicsLayoutWidget):
         return None
 
     def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
-        scene_pos = self.view.mapSceneToView(event.position())
+        scene_pos = self._event_view_pos(event)
         self.view_activated.emit(self.camera_id)
         if event.modifiers() & QtCore.Qt.ShiftModifier:
             self.roi_start = scene_pos
@@ -138,7 +142,7 @@ class ImageView(pg.GraphicsLayoutWidget):
         super().mousePressEvent(event)
 
     def mouseMoveEvent(self, event: QtGui.QMouseEvent) -> None:
-        scene_pos = self.view.mapSceneToView(event.position())
+        scene_pos = self._event_view_pos(event)
         self.cursor_v.setPos(scene_pos.x())
         self.cursor_h.setPos(scene_pos.y())
         if self.roi_start is not None:
@@ -154,7 +158,7 @@ class ImageView(pg.GraphicsLayoutWidget):
 
     def mouseReleaseEvent(self, event: QtGui.QMouseEvent) -> None:
         if self.roi_start is not None:
-            scene_pos = self.view.mapSceneToView(event.position())
+            scene_pos = self._event_view_pos(event)
             rect = QtCore.QRectF(self.roi_start, scene_pos).normalized()
             if rect.width() > 5 and rect.height() > 5:
                 self.view.setRange(rect, padding=0.02)

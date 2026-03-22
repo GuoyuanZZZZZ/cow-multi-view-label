@@ -81,6 +81,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.keypoint_combo.currentIndexChanged.connect(self.on_keypoint_changed)
         toolbar.addWidget(QtWidgets.QLabel("Keypoint"))
         toolbar.addWidget(self.keypoint_combo)
+        prev_kp_btn = QtWidgets.QPushButton("Prev KP")
+        prev_kp_btn.clicked.connect(lambda: self.change_keypoint(-1))
+        toolbar.addWidget(prev_kp_btn)
+        next_kp_btn = QtWidgets.QPushButton("Next KP")
+        next_kp_btn.clicked.connect(lambda: self.change_keypoint(1))
+        toolbar.addWidget(next_kp_btn)
         self.visibility_combo = QtWidgets.QComboBox()
         self.visibility_combo.addItems(VISIBILITY_STATES)
         self.visibility_combo.currentTextChanged.connect(self.on_visibility_changed)
@@ -193,7 +199,17 @@ class MainWindow(QtWidgets.QMainWindow):
         splitter.addWidget(right_panel)
         splitter.setSizes([420, 900, 520])
         main_layout.addWidget(splitter, 1)
-        for key, cb in {"A": lambda: self.change_frame(-1), "D": lambda: self.change_frame(1), "Z": self.on_undo, "Y": self.on_redo, "C": self.on_copy_prev, "I": self.on_interpolate, "Delete": self.on_delete_point}.items():
+        for key, cb in {
+            "A": lambda: self.change_frame(-1),
+            "D": lambda: self.change_frame(1),
+            "W": lambda: self.change_keypoint(-1),
+            "S": lambda: self.change_keypoint(1),
+            "Z": self.on_undo,
+            "Y": self.on_redo,
+            "C": self.on_copy_prev,
+            "I": self.on_interpolate,
+            "Delete": self.on_delete_point,
+        }.items():
             QtGui.QShortcut(QtGui.QKeySequence(key), self, activated=cb)
         self.refresh_frame_suggestions()
 
@@ -206,6 +222,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def change_frame(self, delta: int) -> None:
         self.frame_slider.setValue(max(0, min(self.dataset.frame_count - 1, self.current_frame + delta)))
+
+    def change_keypoint(self, delta: int) -> None:
+        next_idx = max(0, min(len(KEYPOINTS) - 1, self.current_keypoint + delta))
+        self.on_keypoint_changed(next_idx)
 
     def on_keypoint_changed(self, index: int) -> None:
         self.current_keypoint = index
@@ -228,20 +248,27 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_point_changed(self, camera_id: str, kp_idx: int, x: float, y: float) -> None:
         self.active_camera_id = camera_id
-        self.annotations.set_point(self.current_frame, camera_id, kp_idx, x, y, self.visibility_combo.currentText(), instance_idx=self.current_instance)
+        visibility = self.visibility_combo.currentText()
+        if visibility == "absent":
+            visibility = "visible"
+        self.annotations.set_point(self.current_frame, camera_id, kp_idx, x, y, visibility, instance_idx=self.current_instance)
 
     def on_visibility_changed(self, visibility: str) -> None:
-        if visibility != "absent":
+        if not self.active_camera_id:
             self.refresh_views()
             return
         frame = self.annotations.frame(self.current_frame, self.current_instance)
-        changed = False
-        for cid in self.dataset.camera_ids():
-            if frame.by_camera[cid][self.current_keypoint].visibility != "absent":
-                self.annotations.set_visibility(self.current_frame, cid, self.current_keypoint, visibility, instance_idx=self.current_instance)
-                changed = True
-        if not changed:
+        current_visibility = frame.by_camera[self.active_camera_id][self.current_keypoint].visibility
+        if current_visibility == visibility:
             self.refresh_views()
+            return
+        self.annotations.set_visibility(
+            self.current_frame,
+            self.active_camera_id,
+            self.current_keypoint,
+            visibility,
+            instance_idx=self.current_instance,
+        )
 
     def on_undo(self) -> None:
         self.annotations.undo(self.current_frame, self.current_instance)
@@ -269,6 +296,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_view_activated(self, camera_id: str) -> None:
         self.active_camera_id = camera_id
+        self._sync_visibility_combo()
 
     def on_delete_point(self) -> None:
         if self.active_camera_id:
@@ -357,6 +385,15 @@ class MainWindow(QtWidgets.QMainWindow):
         suggested = RepresentativeFrameSampler.suggest(self.dataset, top_k=8)
         self.frames_page.set_frames(suggested)
 
+    def _sync_visibility_combo(self) -> None:
+        if not self.active_camera_id:
+            return
+        frame = self.annotations.frame(self.current_frame, self.current_instance)
+        visibility = frame.by_camera[self.active_camera_id][self.current_keypoint].visibility
+        self.visibility_combo.blockSignals(True)
+        self.visibility_combo.setCurrentText(visibility)
+        self.visibility_combo.blockSignals(False)
+
     def _update_geometry_guides(self, frame: FrameAnnotations) -> None:
         width, height = self.dataset.image_size
         source_id = next((cid for cid in self.dataset.camera_ids() if frame.by_camera[cid][self.current_keypoint].is_valid()), None)
@@ -371,6 +408,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.project_page.update_summary(self.dataset.camera_ids(), self.dataset.frame_count, self.dataset.image_size)
         self.frame_label.setText(f"{self.current_frame + 1}/{self.dataset.frame_count}")
         frame = self.annotations.frame(self.current_frame, self.current_instance)
+        self._sync_visibility_combo()
         frame.points3d = TriangulationEngine.triangulate_frame(frame, self.dataset.calibrations)
         frame.qc = QualityChecker.evaluate(frame, self.dataset.calibrations)
         constraint_status = {}

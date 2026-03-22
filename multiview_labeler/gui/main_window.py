@@ -41,6 +41,23 @@ class MainWindow(QtWidgets.QMainWindow):
         self.annotations.annotations_changed.connect(self.refresh_views)
         self.refresh_views()
 
+    def _build_camera_panel(self, camera_id: str, view: ImageView) -> QtWidgets.QGroupBox:
+        group = QtWidgets.QGroupBox(camera_id)
+        group_layout = QtWidgets.QVBoxLayout(group)
+        controls = QtWidgets.QHBoxLayout()
+        for text, callback in [
+            ("+", view.zoom_in),
+            ("-", view.zoom_out),
+            ("Fit", view.fit_to_image),
+        ]:
+            btn = QtWidgets.QPushButton(text)
+            btn.clicked.connect(callback)
+            controls.addWidget(btn)
+        controls.addStretch(1)
+        group_layout.addLayout(controls)
+        group_layout.addWidget(view)
+        return group
+
     def _build_ui(self) -> None:
         central = QtWidgets.QWidget()
         self.setCentralWidget(central)
@@ -96,24 +113,36 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pages.addTab(self.frames_page, "Frames")
         annotation_page = QtWidgets.QWidget()
         annotation_layout = QtWidgets.QVBoxLayout(annotation_page)
-        views_widget = QtWidgets.QWidget()
-        views_layout = QtWidgets.QGridLayout(views_widget)
-        for idx, cid in enumerate(self.dataset.camera_ids()):
+        top_row = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
+        bottom_row = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
+        camera_ids = self.dataset.camera_ids()
+        for idx, cid in enumerate(camera_ids):
             view = ImageView(cid)
             view.point_changed.connect(self.on_point_changed)
             view.point_selected.connect(self.on_view_point_selected)
             self.views[cid] = view
-            group = QtWidgets.QGroupBox(cid)
-            group_layout = QtWidgets.QVBoxLayout(group)
-            group_layout.addWidget(view)
-            views_layout.addWidget(group, idx // 2, idx % 2)
-        annotation_layout.addWidget(views_widget)
+            group = self._build_camera_panel(cid, view)
+            if idx < 2:
+                top_row.addWidget(group)
+            else:
+                bottom_row.addWidget(group)
+        views_splitter = QtWidgets.QSplitter(QtCore.Qt.Vertical)
+        views_splitter.addWidget(top_row)
+        if bottom_row.count() > 0:
+            views_splitter.addWidget(bottom_row)
+        annotation_layout.addWidget(views_splitter)
         self.pages.addTab(annotation_page, "Annotation")
         self.constraints_page = ConstraintsPage([f"{KEYPOINTS[a]}-{KEYPOINTS[b]}" for a, b in SKELETON])
         self.pages.addTab(self.constraints_page, "Constraints")
         splitter.addWidget(self.pages)
         right_panel = QtWidgets.QWidget()
         right_layout = QtWidgets.QVBoxLayout(right_panel)
+        gl_controls = QtWidgets.QHBoxLayout()
+        for text, callback in [("3D +", self.on_gl_zoom_in), ("3D -", self.on_gl_zoom_out), ("3D Reset", self.on_gl_reset)]:
+            btn = QtWidgets.QPushButton(text)
+            btn.clicked.connect(callback)
+            gl_controls.addWidget(btn)
+        right_layout.addLayout(gl_controls)
         self.gl_view = Skeleton3DView()
         right_layout.addWidget(self.gl_view, 2)
         inspector_tabs = QtWidgets.QTabWidget()
@@ -246,16 +275,22 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_zoom_in(self) -> None:
         for view in self.views.values():
             view.zoom_in()
-        self.gl_view.zoom_in()
 
     def on_zoom_out(self) -> None:
         for view in self.views.values():
             view.zoom_out()
-        self.gl_view.zoom_out()
 
     def on_zoom_fit(self) -> None:
         for view in self.views.values():
             view.fit_to_image()
+
+    def on_gl_zoom_in(self) -> None:
+        self.gl_view.zoom_in()
+
+    def on_gl_zoom_out(self) -> None:
+        self.gl_view.zoom_out()
+
+    def on_gl_reset(self) -> None:
         self.gl_view.reset_view()
 
     def on_export(self) -> None:

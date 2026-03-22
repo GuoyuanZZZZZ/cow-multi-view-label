@@ -296,7 +296,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_view_activated(self, camera_id: str) -> None:
         self.active_camera_id = camera_id
-        self._sync_visibility_combo()
 
     def on_delete_point(self) -> None:
         if self.active_camera_id:
@@ -385,15 +384,6 @@ class MainWindow(QtWidgets.QMainWindow):
         suggested = RepresentativeFrameSampler.suggest(self.dataset, top_k=8)
         self.frames_page.set_frames(suggested)
 
-    def _sync_visibility_combo(self) -> None:
-        if not self.active_camera_id:
-            return
-        frame = self.annotations.frame(self.current_frame, self.current_instance)
-        visibility = frame.by_camera[self.active_camera_id][self.current_keypoint].visibility
-        self.visibility_combo.blockSignals(True)
-        self.visibility_combo.setCurrentText(visibility)
-        self.visibility_combo.blockSignals(False)
-
     def _update_geometry_guides(self, frame: FrameAnnotations) -> None:
         width, height = self.dataset.image_size
         source_id = next((cid for cid in self.dataset.camera_ids() if frame.by_camera[cid][self.current_keypoint].is_valid()), None)
@@ -408,7 +398,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.project_page.update_summary(self.dataset.camera_ids(), self.dataset.frame_count, self.dataset.image_size)
         self.frame_label.setText(f"{self.current_frame + 1}/{self.dataset.frame_count}")
         frame = self.annotations.frame(self.current_frame, self.current_instance)
-        self._sync_visibility_combo()
         frame.points3d = TriangulationEngine.triangulate_frame(frame, self.dataset.calibrations)
         frame.qc = QualityChecker.evaluate(frame, self.dataset.calibrations)
         constraint_status = {}

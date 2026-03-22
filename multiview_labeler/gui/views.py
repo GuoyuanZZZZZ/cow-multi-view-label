@@ -188,6 +188,9 @@ class Skeleton3DView(gl.GLViewWidget):
     def __init__(self) -> None:
         super().__init__()
         self.setCameraPosition(distance=10)
+        self.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.setMouseTracking(True)
+        self._last_mouse_pos: Optional[QtCore.QPointF] = None
         grid = gl.GLGridItem()
         grid.scale(1, 1, 1)
         self.addItem(grid)
@@ -214,6 +217,32 @@ class Skeleton3DView(gl.GLViewWidget):
                 line = gl.GLLinePlotItem(pos=np.vstack([dense[a], dense[b]]), color=(0.3, 0.8, 0.2, 1), width=2, antialias=True)
                 self.addItem(line)
                 self.lines.append(line)
+
+    def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
+        self._last_mouse_pos = event.position()
+        event.accept()
+
+    def mouseMoveEvent(self, event: QtGui.QMouseEvent) -> None:
+        if self._last_mouse_pos is None:
+            self._last_mouse_pos = event.position()
+            event.accept()
+            return
+        delta = event.position() - self._last_mouse_pos
+        if event.buttons() & QtCore.Qt.LeftButton:
+            self.orbit(-delta.x() * 0.6, delta.y() * 0.6)
+            event.accept()
+        elif event.buttons() & (QtCore.Qt.RightButton | QtCore.Qt.MiddleButton):
+            self.pan(delta.x() * 0.01, -delta.y() * 0.01, 0, relative='view')
+            event.accept()
+        else:
+            super().mouseMoveEvent(event)
+            return
+        self._last_mouse_pos = event.position()
+        self.update()
+
+    def mouseReleaseEvent(self, event: QtGui.QMouseEvent) -> None:
+        self._last_mouse_pos = None
+        event.accept()
 
     def wheelEvent(self, event):
         delta = event.angleDelta().y()

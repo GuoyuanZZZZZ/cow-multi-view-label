@@ -41,6 +41,19 @@ class DemoDataBuilder:
             ],
             dtype=float,
         )
+
+        def visible_indices(camera_id: str) -> set[int]:
+            masks = {
+                "cam_left": {0, 1, 2, 3, 4, 6},
+                "cam_right": {0, 1, 2, 3, 5, 7},
+                "cam_top": set(range(len(KEYPOINTS))),
+                "cam_ground_fl": {0, 1, 2, 4, 5, 6},
+                "cam_ground_fr": {0, 1, 2, 4, 5, 7},
+                "cam_ground_rl": {1, 2, 3, 4, 6, 7},
+                "cam_ground_rr": {1, 2, 3, 5, 6, 7},
+            }
+            return masks.get(camera_id, set(range(len(KEYPOINTS))))
+
         for frame_idx in range(20):
             points = points_template.copy()
             points[:, 0] += math.sin(frame_idx / 3.0) * 0.25
@@ -48,13 +61,17 @@ class DemoDataBuilder:
             points[:, 2] += math.sin(frame_idx / 5.0) * 0.2
             for cid, calib in calibrations.items():
                 img = np.full((height, width, 3), (245, 248, 252), dtype=np.uint8)
+                visible = visible_indices(cid)
                 for i, pt in enumerate(points):
+                    if i not in visible:
+                        continue
                     uv = calib.project(pt).astype(int)
                     if 0 <= uv[0] < width and 0 <= uv[1] < height:
                         cv2.circle(img, tuple(uv), 7, (30, 30, 220), -1)
                         cv2.putText(img, KEYPOINTS[i], (uv[0] + 8, uv[1] - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 70), 1)
                 for a, b in SKELETON:
-                    cv2.line(img, tuple(calib.project(points[a]).astype(int)), tuple(calib.project(points[b]).astype(int)), (80, 140, 80), 2)
+                    if a in visible and b in visible:
+                        cv2.line(img, tuple(calib.project(points[a]).astype(int)), tuple(calib.project(points[b]).astype(int)), (80, 140, 80), 2)
                 cv2.putText(img, f"{cid} frame {frame_idx:03d}", (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (50, 50, 50), 2)
                 cv2.imwrite(str(self.root / cid / f"frame_{frame_idx:03d}.png"), img)
         CalibrationIO.save(self.root / "demo_calibration.json", calibrations)

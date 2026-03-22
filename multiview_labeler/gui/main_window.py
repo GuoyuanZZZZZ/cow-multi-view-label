@@ -35,6 +35,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_instance = 0
         self.active_camera_id = ""
         self.views: Dict[str, ImageView] = {}
+        self.camera_groups: Dict[str, QtWidgets.QGroupBox] = {}
         self.current_qc_payload: dict = {}
         self.setWindowTitle("Multi-camera 2D/3D Labeler Demo")
         self.resize(1700, 980)
@@ -57,6 +58,7 @@ class MainWindow(QtWidgets.QMainWindow):
         controls.addStretch(1)
         group_layout.addLayout(controls)
         group_layout.addWidget(view)
+        self.camera_groups[camera_id] = group
         return group
 
     def _build_ui(self) -> None:
@@ -95,6 +97,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.instance_spin.valueChanged.connect(self.on_instance_changed)
         toolbar.addWidget(QtWidgets.QLabel("Instance"))
         toolbar.addWidget(self.instance_spin)
+        self.view_selector_btn = QtWidgets.QToolButton()
+        self.view_selector_btn.setText("Visible Views")
+        self.view_selector_btn.setPopupMode(QtWidgets.QToolButton.InstantPopup)
+        self.view_selector_menu = QtWidgets.QMenu(self)
+        self.view_selector_btn.setMenu(self.view_selector_menu)
+        toolbar.addWidget(self.view_selector_btn)
         for text, callback in [
             ("Undo", self.on_undo), ("Redo", self.on_redo), ("Copy Prev", self.on_copy_prev),
             ("Interpolate", self.on_interpolate), ("Delete Point", self.on_delete_point), ("Export", self.on_export),
@@ -134,6 +142,10 @@ class MainWindow(QtWidgets.QMainWindow):
             if row_idx >= len(rows):
                 rows.append(QtWidgets.QSplitter(QtCore.Qt.Horizontal))
             rows[row_idx].addWidget(group)
+            action = self.view_selector_menu.addAction(cid)
+            action.setCheckable(True)
+            action.setChecked(True)
+            action.toggled.connect(lambda checked, camera_id=cid: self.on_toggle_camera(camera_id, checked))
         views_splitter = QtWidgets.QSplitter(QtCore.Qt.Vertical)
         for row in rows:
             views_splitter.addWidget(row)
@@ -246,6 +258,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_instance_changed(self, value: int) -> None:
         self.current_instance = max(0, value - 1)
         self.refresh_views()
+
+    def on_toggle_camera(self, camera_id: str, visible: bool) -> None:
+        if camera_id in self.camera_groups:
+            self.camera_groups[camera_id].setVisible(visible)
 
     def on_mode_changed(self, mode: str) -> None:
         for view in self.views.values():

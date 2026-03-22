@@ -11,13 +11,13 @@ from PySide6 import QtCore, QtGui, QtWidgets
 
 from multiview_labeler.core.annotation import AnnotationManager
 from multiview_labeler.core.calibration import CalibrationIO
-from multiview_labeler.core.constants import KEYPOINTS, VISIBILITY_STATES
+from multiview_labeler.core.constants import KEYPOINTS, SKELETON, VISIBILITY_STATES
 from multiview_labeler.core.dataset import MultiCameraDataset
 from multiview_labeler.core.geometry import TriangulationEngine
 from multiview_labeler.core.models import FrameAnnotations
 from multiview_labeler.core.qc import QualityChecker
 from multiview_labeler.gui.calibration_dialog import CalibrationDialog
-from multiview_labeler.gui.pages import CalibrationPage, ExportPage, FramesPage, KeypointTable, ProjectPage
+from multiview_labeler.gui.pages import CalibrationPage, ConstraintsPage, ExportPage, FramesPage, ImportWizardPage, KeypointTable, ProjectPage
 from multiview_labeler.gui.views import ImageView, Skeleton3DView
 from multiview_labeler.tools.exporters import Exporter
 from multiview_labeler.tools.frame_sampler import RepresentativeFrameSampler
@@ -31,6 +31,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.demo_root = demo_root
         self.current_frame = 0
         self.current_keypoint = 0
+        self.current_instance = 0
         self.views: Dict[str, ImageView] = {}
         self.current_qc_payload: dict = {}
         self.setWindowTitle("Multi-camera 2D/3D Labeler Demo")
@@ -61,6 +62,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.visibility_combo.currentTextChanged.connect(self.on_visibility_changed)
         toolbar.addWidget(QtWidgets.QLabel("Visibility"))
         toolbar.addWidget(self.visibility_combo)
+        self.instance_spin = QtWidgets.QSpinBox()
+        self.instance_spin.setRange(1, self.project_page.instance_count.value() if hasattr(self, "project_page") else 8)
+        self.instance_spin.setValue(1)
+        self.instance_spin.valueChanged.connect(self.on_instance_changed)
+        toolbar.addWidget(QtWidgets.QLabel("Instance"))
+        toolbar.addWidget(self.instance_spin)
         for text, callback in [
             ("Undo", self.on_undo), ("Redo", self.on_redo), ("Copy Prev", self.on_copy_prev),
             ("Interpolate", self.on_interpolate), ("Export", self.on_export),
@@ -74,7 +81,11 @@ class MainWindow(QtWidgets.QMainWindow):
         splitter = QtWidgets.QSplitter()
         self.pages = QtWidgets.QTabWidget()
         self.project_page = ProjectPage()
+        self.project_page.instance_count.valueChanged.connect(self.on_project_instance_count_changed)
         self.pages.addTab(self.project_page, "Project")
+        self.import_page = ImportWizardPage()
+        self.import_page.import_videos_requested.connect(self.on_import_videos)
+        self.pages.addTab(self.import_page, "Import")
         self.frames_page = FramesPage()
         self.frames_page.jump_to_frame.connect(self.on_frame_changed)
         self.frames_page.refresh_requested.connect(self.refresh_frame_suggestions)
@@ -105,6 +116,8 @@ class MainWindow(QtWidgets.QMainWindow):
         annotation_side_layout.addWidget(self.info_box, 3)
         annotation_layout.addWidget(annotation_side, 1)
         self.pages.addTab(annotation_page, "Annotation")
+        self.constraints_page = ConstraintsPage([f"{KEYPOINTS[a]}-{KEYPOINTS[b]}" for a, b in SKELETON])
+        self.pages.addTab(self.constraints_page, "Constraints")
         splitter.addWidget(self.pages)
         right_panel = QtWidgets.QWidget()
         right_layout = QtWidgets.QVBoxLayout(right_panel)
@@ -155,32 +168,53 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_views()
 
     def on_point_changed(self, camera_id: str, kp_idx: int, x: float, y: float) -> None:
-        self.annotations.set_point(self.current_frame, camera_id, kp_idx, x, y, self.visibility_combo.currentText())
+        self.annotations.set_point(self.current_frame, camera_id, kp_idx, x, y, self.visibility_combo.currentText(), instance_idx=self.current_instance)
 
     def on_visibility_changed(self, visibility: str) -> None:
         if visibility != "absent":
             self.refresh_views()
             return
-        frame = self.annotations.frame(self.current_frame)
+        frame = self.annotations.frame(self.current_frame, self.current_instance)
         changed = False
         for cid in self.dataset.camera_ids():
             if frame.by_camera[cid][self.current_keypoint].visibility != "absent":
-                self.annotations.set_visibility(self.current_frame, cid, self.current_keypoint, visibility)
+                self.annotations.set_visibility(self.current_frame, cid, self.current_keypoint, visibility, instance_idx=self.current_instance)
                 changed = True
         if not changed:
             self.refresh_views()
 
     def on_undo(self) -> None:
-        self.annotations.undo(self.current_frame)
+        self.annotations.undo(self.current_frame, self.current_instance)
 
     def on_redo(self) -> None:
-        self.annotations.redo(self.current_frame)
+        self.annotations.redo(self.current_frame, self.current_instance)
 
     def on_copy_prev(self) -> None:
-        self.annotations.copy_previous_frame(self.current_frame)
+        self.annotations.copy_previous_frame(self.current_frame, self.current_instance)
 
     def on_interpolate(self) -> None:
-        self.annotations.interpolate_from_neighbors(self.current_frame)
+        self.annotations.interpolate_from_neighbors(self.current_frame, self.current_instance)
+
+    def on_instance_changed(self, value: int) -> None:
+        self.current_instance = max(0, value - 1)
+        self.refresh_views()
+
+    def on_project_instance_count_changed(self, value: int) -> None:
+        self.annotations.instance_count = value
+        self.instance_spin.setRange(1, value)
+
+    def on_import_videos(self) -> None:
+        selected = {}
+        for cid in self.dataset.camera_ids():
+            path, _ = QtWidgets.QFileDialog.getOpenFileName(self, f"Select video for {cid}", str(self.demo_root), "Videos (*.mp4 *.mov *.avi *.mkv)")
+            if not path:
+                return
+            selected[cid] = Path(path)
+        extracted_root = self.demo_root / "imported_videos"
+        self.dataset.import_videos(selected, extracted_root)
+        self.import_page.set_video_rows([(cid, str(path)) for cid, path in selected.items()])
+        self.refresh_frame_suggestions()
+        self.refresh_views()
 
     def on_save_calib(self) -> None:
         path, _ = QtWidgets.QFileDialog.getSaveFileName(self, "Save calibration", str(self.demo_root / "calibration_saved.json"), "JSON (*.json)")
@@ -218,13 +252,16 @@ class MainWindow(QtWidgets.QMainWindow):
         out_dir = self.demo_root / "exports"
         out_dir.mkdir(exist_ok=True)
         payload = {
-            str(frame_idx): {"2d": {cid: [asdict(kp) for kp in kps] for cid, kps in frame.by_camera.items()}, "3d": frame.points3d, "qc": frame.qc}
-            for frame_idx, frame in self.annotations.frames.items()
+            str(frame_idx): {
+                str(instance_idx): {"2d": {cid: [asdict(kp) for kp in kps] for cid, kps in frame.by_camera.items()}, "3d": frame.points3d, "qc": frame.qc}
+                for instance_idx, frame in instances.items()
+            }
+            for frame_idx, instances in self.annotations.frames.items()
         }
         Exporter.export_json(out_dir / "annotations.json", payload)
         Exporter.export_2d_csv(out_dir / "keypoints_2d.csv", self.annotations)
         Exporter.export_3d_csv(out_dir / "keypoints_3d.csv", self.annotations)
-        Exporter.export_json(out_dir / "qc_report.json", {str(k): v.qc for k, v in self.annotations.frames.items()})
+        Exporter.export_json(out_dir / "qc_report.json", {str(frame_idx): {str(instance_idx): frame.qc for instance_idx, frame in instances.items()} for frame_idx, instances in self.annotations.frames.items()})
         QtWidgets.QMessageBox.information(self, "Export", f"Exported files to {out_dir}")
 
     def refresh_frame_suggestions(self) -> None:
@@ -244,9 +281,17 @@ class MainWindow(QtWidgets.QMainWindow):
     def refresh_views(self) -> None:
         self.project_page.update_summary(self.dataset.camera_ids(), self.dataset.frame_count, self.dataset.image_size)
         self.frame_label.setText(f"{self.current_frame + 1}/{self.dataset.frame_count}")
-        frame = self.annotations.frame(self.current_frame)
+        frame = self.annotations.frame(self.current_frame, self.current_instance)
         frame.points3d = TriangulationEngine.triangulate_frame(frame, self.dataset.calibrations)
         frame.qc = QualityChecker.evaluate(frame, self.dataset.calibrations)
+        constraint_status = {}
+        for bone_name, length in frame.qc.get("bone_lengths", {}).items():
+            constraint = self.constraints_page.constraints().get(bone_name)
+            if constraint:
+                target, tolerance = constraint
+                delta = abs(length - target)
+                constraint_status[bone_name] = {"target": target, "observed": length, "delta": delta, "ok": delta <= tolerance}
+        self.constraints_page.set_status(constraint_status)
         anomalies_by_cam = {cid: set() for cid in self.dataset.camera_ids()}
         for item in frame.qc.get("anomalies", []):
             if item.get("type") == "reprojection":
@@ -269,11 +314,13 @@ class MainWindow(QtWidgets.QMainWindow):
                     reco = self.dataset.calibrations[cid].project(np.array(point3d, dtype=float))
                     recommendations.append({"camera": cid, "keypoint": KEYPOINTS[self.current_keypoint], "recommended_uv": [round(float(reco[0]), 2), round(float(reco[1]), 2)]})
         details = {
+            "instance": self.current_instance,
             "selected_keypoint": KEYPOINTS[self.current_keypoint],
             "sync_mode": "frame_index",
             "frame_sync": self.dataset.sync_map[self.current_frame] if self.dataset.sync_map else {},
             "recommendations": recommendations,
             "qc": frame.qc,
+            "constraints": constraint_status,
         }
         self.current_qc_payload = details
         self.info_box.setPlainText(json.dumps(details, indent=2, ensure_ascii=False))

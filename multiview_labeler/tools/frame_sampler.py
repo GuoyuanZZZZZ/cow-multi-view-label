@@ -11,7 +11,13 @@ from multiview_labeler.core.dataset import MultiCameraDataset
 
 class RepresentativeFrameSampler:
     @staticmethod
-    def suggest(dataset: MultiCameraDataset, top_k: int = 8, camera_id: str | None = None) -> List[int]:
+    def suggest(
+        dataset: MultiCameraDataset,
+        top_k: int = 8,
+        camera_id: str | None = None,
+        min_gap: int = 2,
+        include_uniform: bool = True,
+    ) -> List[int]:
         if dataset.frame_count <= 1:
             return [0] if dataset.frame_count == 1 else []
         cam = camera_id or dataset.camera_ids()[0]
@@ -29,5 +35,17 @@ class RepresentativeFrameSampler:
                 scores.append((frame_idx, score))
             previous = gray
         scores.sort(key=lambda item: item[1], reverse=True)
-        chosen = sorted(idx for idx, _score in scores[: max(1, min(top_k, len(scores)))])
+        chosen: List[int] = []
+        for idx, _score in scores:
+            if all(abs(idx - existing) >= min_gap for existing in chosen):
+                chosen.append(idx)
+            if len(chosen) >= max(1, min(top_k, len(scores))):
+                break
+        if include_uniform and dataset.frame_count > 1:
+            uniform_count = min(max(2, top_k // 2), dataset.frame_count)
+            uniform = np.linspace(0, dataset.frame_count - 1, num=uniform_count, dtype=int).tolist()
+            chosen.extend(uniform)
+        chosen = sorted(set(chosen))
+        while len(chosen) > top_k:
+            chosen.pop(len(chosen) // 2)
         return chosen

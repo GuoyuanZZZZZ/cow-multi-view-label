@@ -17,6 +17,7 @@ from multiview_labeler.core.models import Keypoint2D
 class ImageView(pg.GraphicsLayoutWidget):
     point_changed = QtCore.Signal(str, int, float, float)
     point_selected = QtCore.Signal(int)
+    view_activated = QtCore.Signal(str)
 
     def __init__(self, camera_id: str) -> None:
         super().__init__()
@@ -33,11 +34,16 @@ class ImageView(pg.GraphicsLayoutWidget):
         self.drag_distance = 16.0
         self.current_points: List[Keypoint2D] = []
         self.roi_start: Optional[QtCore.QPointF] = None
+        self.interaction_mode = "annotate"
         self.roi_rect_item = pg.RectROI([0, 0], [1, 1], pen=pg.mkPen("m", width=2))
         self.roi_rect_item.hide()
         self.epipolar_item = pg.PlotDataItem(pen=pg.mkPen((180, 0, 180), width=2, style=QtCore.Qt.DashLine))
+        self.cursor_v = pg.InfiniteLine(angle=90, pen=pg.mkPen((255, 255, 255, 90), width=1))
+        self.cursor_h = pg.InfiniteLine(angle=0, pen=pg.mkPen((255, 255, 255, 90), width=1))
         self.view.addItem(self.epipolar_item)
         self.view.addItem(self.roi_rect_item)
+        self.view.addItem(self.cursor_v)
+        self.view.addItem(self.cursor_h)
         self.scatter.sigClicked.connect(self.on_scatter_clicked)
         self.view.setMouseEnabled(x=True, y=True)
 
@@ -110,12 +116,16 @@ class ImageView(pg.GraphicsLayoutWidget):
 
     def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
         scene_pos = self.view.mapSceneToView(event.position())
+        self.view_activated.emit(self.camera_id)
         if event.modifiers() & QtCore.Qt.ShiftModifier:
             self.roi_start = scene_pos
             self.roi_rect_item.setPos([scene_pos.x(), scene_pos.y()])
             self.roi_rect_item.setSize([1, 1])
             self.roi_rect_item.show()
             event.accept()
+            return
+        if self.interaction_mode == "navigate":
+            super().mousePressEvent(event)
             return
         if event.button() == QtCore.Qt.LeftButton:
             nearby = self._find_nearby_point(scene_pos.x(), scene_pos.y())
@@ -128,16 +138,17 @@ class ImageView(pg.GraphicsLayoutWidget):
         super().mousePressEvent(event)
 
     def mouseMoveEvent(self, event: QtGui.QMouseEvent) -> None:
+        scene_pos = self.view.mapSceneToView(event.position())
+        self.cursor_v.setPos(scene_pos.x())
+        self.cursor_h.setPos(scene_pos.y())
         if self.roi_start is not None:
-            scene_pos = self.view.mapSceneToView(event.position())
             x0, y0 = self.roi_start.x(), self.roi_start.y()
             x1, y1 = scene_pos.x(), scene_pos.y()
             self.roi_rect_item.setPos([min(x0, x1), min(y0, y1)])
             self.roi_rect_item.setSize([max(1, abs(x1 - x0)), max(1, abs(y1 - y0))])
             event.accept()
             return
-        if self.dragging_idx is not None:
-            scene_pos = self.view.mapSceneToView(event.position())
+        if self.dragging_idx is not None and self.interaction_mode == "annotate":
             self.point_changed.emit(self.camera_id, self.dragging_idx, scene_pos.x(), scene_pos.y())
         super().mouseMoveEvent(event)
 
@@ -168,6 +179,9 @@ class ImageView(pg.GraphicsLayoutWidget):
     def fit_to_image(self) -> None:
         if hasattr(self, "_image_rect"):
             self.view.setRange(self._image_rect, padding=0.02)
+
+    def set_interaction_mode(self, mode: str) -> None:
+        self.interaction_mode = mode
 
 
 class Skeleton3DView(gl.GLViewWidget):
@@ -217,3 +231,13 @@ class Skeleton3DView(gl.GLViewWidget):
 
     def reset_view(self) -> None:
         self.setCameraPosition(distance=10)
+
+    def set_view_preset(self, preset: str) -> None:
+        presets = {
+            "front": dict(distance=10, elevation=10, azimuth=0),
+            "left": dict(distance=10, elevation=10, azimuth=90),
+            "right": dict(distance=10, elevation=10, azimuth=-90),
+            "top": dict(distance=12, elevation=90, azimuth=0),
+        }
+        config = presets.get(preset, presets["front"])
+        self.setCameraPosition(**config)

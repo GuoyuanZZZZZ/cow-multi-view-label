@@ -33,6 +33,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_frame = 0
         self.current_keypoint = 0
         self.current_instance = 0
+        self.active_camera_id = ""
         self.views: Dict[str, ImageView] = {}
         self.current_qc_payload: dict = {}
         self.setWindowTitle("Multi-camera 2D/3D Labeler Demo")
@@ -83,6 +84,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.visibility_combo.currentTextChanged.connect(self.on_visibility_changed)
         toolbar.addWidget(QtWidgets.QLabel("Visibility"))
         toolbar.addWidget(self.visibility_combo)
+        self.mode_combo = QtWidgets.QComboBox()
+        self.mode_combo.addItems(["annotate", "navigate"])
+        self.mode_combo.currentTextChanged.connect(self.on_mode_changed)
+        toolbar.addWidget(QtWidgets.QLabel("Mode"))
+        toolbar.addWidget(self.mode_combo)
         self.instance_spin = QtWidgets.QSpinBox()
         self.instance_spin.setRange(1, self.project_page.instance_count.value() if hasattr(self, "project_page") else 8)
         self.instance_spin.setValue(1)
@@ -91,7 +97,7 @@ class MainWindow(QtWidgets.QMainWindow):
         toolbar.addWidget(self.instance_spin)
         for text, callback in [
             ("Undo", self.on_undo), ("Redo", self.on_redo), ("Copy Prev", self.on_copy_prev),
-            ("Interpolate", self.on_interpolate), ("Export", self.on_export),
+            ("Interpolate", self.on_interpolate), ("Delete Point", self.on_delete_point), ("Export", self.on_export),
             ("Run Calib", self.on_run_calibration), ("Save Calib", self.on_save_calib), ("Load Calib", self.on_load_calib),
             ("Zoom In", self.on_zoom_in), ("Zoom Out", self.on_zoom_out), ("Fit", self.on_zoom_fit),
         ]:
@@ -119,7 +125,10 @@ class MainWindow(QtWidgets.QMainWindow):
             view = ImageView(cid)
             view.point_changed.connect(self.on_point_changed)
             view.point_selected.connect(self.on_view_point_selected)
+            view.view_activated.connect(self.on_view_activated)
             self.views[cid] = view
+            if not self.active_camera_id:
+                self.active_camera_id = cid
             group = self._build_camera_panel(cid, view)
             row_idx = idx // 3
             if row_idx >= len(rows):
@@ -139,6 +148,10 @@ class MainWindow(QtWidgets.QMainWindow):
         for text, callback in [("3D +", self.on_gl_zoom_in), ("3D -", self.on_gl_zoom_out), ("3D Reset", self.on_gl_reset)]:
             btn = QtWidgets.QPushButton(text)
             btn.clicked.connect(callback)
+            gl_controls.addWidget(btn)
+        for text, preset in [("Front", "front"), ("Left", "left"), ("Right", "right"), ("Top", "top")]:
+            btn = QtWidgets.QPushButton(text)
+            btn.clicked.connect(lambda _checked=False, p=preset: self.gl_view.set_view_preset(p))
             gl_controls.addWidget(btn)
         right_layout.addLayout(gl_controls)
         self.gl_view = Skeleton3DView()
@@ -168,7 +181,7 @@ class MainWindow(QtWidgets.QMainWindow):
         splitter.addWidget(right_panel)
         splitter.setSizes([420, 900, 520])
         main_layout.addWidget(splitter, 1)
-        for key, cb in {"A": lambda: self.change_frame(-1), "D": lambda: self.change_frame(1), "Z": self.on_undo, "Y": self.on_redo, "C": self.on_copy_prev, "I": self.on_interpolate}.items():
+        for key, cb in {"A": lambda: self.change_frame(-1), "D": lambda: self.change_frame(1), "Z": self.on_undo, "Y": self.on_redo, "C": self.on_copy_prev, "I": self.on_interpolate, "Delete": self.on_delete_point}.items():
             QtGui.QShortcut(QtGui.QKeySequence(key), self, activated=cb)
         self.refresh_frame_suggestions()
 
@@ -202,6 +215,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_views()
 
     def on_point_changed(self, camera_id: str, kp_idx: int, x: float, y: float) -> None:
+        self.active_camera_id = camera_id
         self.annotations.set_point(self.current_frame, camera_id, kp_idx, x, y, self.visibility_combo.currentText(), instance_idx=self.current_instance)
 
     def on_visibility_changed(self, visibility: str) -> None:
@@ -232,6 +246,17 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_instance_changed(self, value: int) -> None:
         self.current_instance = max(0, value - 1)
         self.refresh_views()
+
+    def on_mode_changed(self, mode: str) -> None:
+        for view in self.views.values():
+            view.set_interaction_mode(mode)
+
+    def on_view_activated(self, camera_id: str) -> None:
+        self.active_camera_id = camera_id
+
+    def on_delete_point(self) -> None:
+        if self.active_camera_id:
+            self.annotations.delete_point(self.current_frame, self.active_camera_id, self.current_keypoint, instance_idx=self.current_instance)
 
     def on_project_instance_count_changed(self, value: int) -> None:
         self.annotations.instance_count = value

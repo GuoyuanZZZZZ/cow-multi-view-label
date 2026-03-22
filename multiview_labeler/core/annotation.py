@@ -88,6 +88,14 @@ class AnnotationManager(QtCore.QObject):
             kp.y = None
         self.annotations_changed.emit()
 
+    def delete_point(self, frame_idx: int, camera_id: str, kp_idx: int, instance_idx: int = 0) -> None:
+        self.push_undo(frame_idx, instance_idx)
+        kp = self.frame(frame_idx, instance_idx).by_camera[camera_id][kp_idx]
+        kp.x = None
+        kp.y = None
+        kp.visibility = "absent"
+        self.annotations_changed.emit()
+
     def copy_previous_frame(self, frame_idx: int, instance_idx: int = 0) -> None:
         if frame_idx <= 0 or (frame_idx - 1) not in self.frames or instance_idx not in self.frames[frame_idx - 1]:
             return

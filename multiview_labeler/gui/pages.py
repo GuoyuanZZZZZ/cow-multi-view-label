@@ -1,0 +1,228 @@
+"""Workbench-style pages/panels for the annotation tool."""
+from __future__ import annotations
+
+import json
+from typing import Dict, List
+
+from PySide6 import QtCore, QtWidgets
+
+from multiview_labeler.core.constants import KEYPOINTS
+from multiview_labeler.core.models import Keypoint2D
+
+
+class ProjectPage(QtWidgets.QWidget):
+    def __init__(self) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        form = QtWidgets.QFormLayout()
+        self.project_name = QtWidgets.QLineEdit("demo_project")
+        self.session_name = QtWidgets.QLineEdit("session_001")
+        self.instance_count = QtWidgets.QSpinBox()
+        self.instance_count.setRange(1, 32)
+        self.instance_count.setValue(1)
+        form.addRow("Project Name", self.project_name)
+        form.addRow("Session Name", self.session_name)
+        form.addRow("Instances", self.instance_count)
+        layout.addLayout(form)
+        self.summary = QtWidgets.QPlainTextEdit()
+        self.summary.setReadOnly(True)
+        self.summary.setPlainText(
+            "Project workspace\n\n"
+            "- Annotation page: multi-view labeling, zoom, triangulation, 3D view\n"
+            "- Calibration page: chessboard calibration workflow\n"
+            "- Export/QC page: report preview and export actions\n"
+        )
+        layout.addWidget(QtWidgets.QLabel("Workspace Overview"))
+        layout.addWidget(self.summary)
+
+    def update_summary(self, camera_ids: List[str], frame_count: int, image_size: tuple[int, int]) -> None:
+        self.summary.setPlainText(
+            json.dumps(
+                {
+                    "project_name": self.project_name.text(),
+                    "session_name": self.session_name.text(),
+                    "instances": self.instance_count.value(),
+                    "camera_ids": camera_ids,
+                    "frame_count": frame_count,
+                    "image_size": image_size,
+                    "pages": ["project", "import", "frames", "annotation", "constraints", "calibration", "export_qc"],
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+
+
+class KeypointTable(QtWidgets.QTableWidget):
+    point_selected = QtCore.Signal(int)
+
+    def __init__(self) -> None:
+        super().__init__(len(KEYPOINTS), 3)
+        self.setHorizontalHeaderLabels(["Keypoint", "Views Labeled", "3D"]) 
+        self.verticalHeader().setVisible(False)
+        self.horizontalHeader().setStretchLastSection(True)
+        for row, name in enumerate(KEYPOINTS):
+            self.setItem(row, 0, QtWidgets.QTableWidgetItem(name))
+            self.setItem(row, 1, QtWidgets.QTableWidgetItem("0"))
+            self.setItem(row, 2, QtWidgets.QTableWidgetItem("No"))
+        self.cellClicked.connect(lambda row, _col: self.point_selected.emit(row))
+
+    def update_points(self, by_camera: Dict[str, List[Keypoint2D]], points3d: list) -> None:
+        for row, name in enumerate(KEYPOINTS):
+            labeled = sum(1 for cid in by_camera if by_camera[cid][row].is_valid())
+            self.item(row, 1).setText(str(labeled))
+            self.item(row, 2).setText("Yes" if points3d[row] is not None else "No")
+            self.item(row, 0).setToolTip(name)
+
+
+class CalibrationPage(QtWidgets.QWidget):
+    run_calibration = QtCore.Signal()
+    save_calibration = QtCore.Signal()
+    load_calibration = QtCore.Signal()
+
+    def __init__(self) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        info = QtWidgets.QLabel(
+            "Calibration Workspace\n"
+            "1. Prepare chessboard images or per-camera videos.\n"
+            "2. Run calibration to estimate intrinsics (K/dist) and extrinsics (R/t).\n"
+            "3. For extrinsics, cameras must share at least one synchronized frame with the same board pose.\n"
+            "4. Save result to JSON for future sessions."
+        )
+        info.setWordWrap(True)
+        button_row = QtWidgets.QHBoxLayout()
+        for text, signal in [
+            ("Run Calibration", self.run_calibration),
+            ("Save Calibration", self.save_calibration),
+            ("Load Calibration", self.load_calibration),
+        ]:
+            btn = QtWidgets.QPushButton(text)
+            btn.clicked.connect(signal.emit)
+            button_row.addWidget(btn)
+        self.status = QtWidgets.QPlainTextEdit()
+        self.status.setReadOnly(True)
+        layout.addWidget(info)
+        layout.addLayout(button_row)
+        layout.addWidget(QtWidgets.QLabel("Calibration Status"))
+        layout.addWidget(self.status)
+
+    def set_status(self, text: str) -> None:
+        self.status.setPlainText(text)
+
+
+class ExportPage(QtWidgets.QWidget):
+    export_requested = QtCore.Signal()
+    import_requested = QtCore.Signal()
+
+    def __init__(self) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        self.report = QtWidgets.QPlainTextEdit()
+        self.report.setReadOnly(True)
+        buttons = QtWidgets.QHBoxLayout()
+        export_btn = QtWidgets.QPushButton("Export 2D/3D/QC")
+        import_btn = QtWidgets.QPushButton("Import Existing Labels")
+        export_btn.clicked.connect(self.export_requested.emit)
+        import_btn.clicked.connect(self.import_requested.emit)
+        layout.addWidget(QtWidgets.QLabel("QC / Export Workspace"))
+        layout.addWidget(self.report)
+        buttons.addWidget(export_btn)
+        buttons.addWidget(import_btn)
+        layout.addLayout(buttons)
+
+    def set_report(self, payload: dict) -> None:
+        self.report.setPlainText(json.dumps(payload, indent=2, ensure_ascii=False))
+
+
+class FramesPage(QtWidgets.QWidget):
+    jump_to_frame = QtCore.Signal(int)
+    refresh_requested = QtCore.Signal()
+
+    def __init__(self) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        info = QtWidgets.QLabel(
+            "Representative Frames Workspace\n"
+            "Inspired by JARVIS-style workflows: review automatically suggested frames\n"
+            "with strong appearance changes to speed up annotation coverage."
+        )
+        info.setWordWrap(True)
+        self.list_widget = QtWidgets.QListWidget()
+        self.list_widget.itemClicked.connect(self._on_item_clicked)
+        refresh_btn = QtWidgets.QPushButton("Refresh Suggestions")
+        refresh_btn.clicked.connect(self.refresh_requested.emit)
+        layout.addWidget(info)
+        layout.addWidget(self.list_widget)
+        layout.addWidget(refresh_btn)
+
+    def set_frames(self, frames: List[int]) -> None:
+        self.list_widget.clear()
+        for frame_idx in frames:
+            self.list_widget.addItem(f"Frame {frame_idx + 1}")
+
+    def _on_item_clicked(self, item: QtWidgets.QListWidgetItem) -> None:
+        text = item.text().replace("Frame ", "")
+        self.jump_to_frame.emit(int(text) - 1)
+
+
+class ImportWizardPage(QtWidgets.QWidget):
+    import_videos_requested = QtCore.Signal()
+
+    def __init__(self) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        self.instructions = QtWidgets.QPlainTextEdit()
+        self.instructions.setReadOnly(True)
+        self.instructions.setPlainText(
+            "Multi-video Import Wizard\\n\\n"
+            "1. Prepare one video per camera.\\n"
+            "2. Click 'Import Videos' in this page or toolbar workflow.\\n"
+            "3. The system extracts synchronized frames and rebuilds the dataset."
+        )
+        self.path_table = QtWidgets.QTableWidget(0, 2)
+        self.path_table.setHorizontalHeaderLabels(["Camera ID", "Video Path"])
+        self.path_table.horizontalHeader().setStretchLastSection(True)
+        self.import_btn = QtWidgets.QPushButton("Import Videos")
+        self.import_btn.clicked.connect(self.import_videos_requested.emit)
+        layout.addWidget(self.instructions)
+        layout.addWidget(self.path_table)
+        layout.addWidget(self.import_btn)
+
+    def set_video_rows(self, rows: List[tuple[str, str]]) -> None:
+        self.path_table.setRowCount(len(rows))
+        for row, (camera_id, video_path) in enumerate(rows):
+            self.path_table.setItem(row, 0, QtWidgets.QTableWidgetItem(camera_id))
+            self.path_table.setItem(row, 1, QtWidgets.QTableWidgetItem(video_path))
+
+
+class ConstraintsPage(QtWidgets.QWidget):
+    def __init__(self, bones: List[str]) -> None:
+        super().__init__()
+        layout = QtWidgets.QVBoxLayout(self)
+        self.table = QtWidgets.QTableWidget(len(bones), 3)
+        self.table.setHorizontalHeaderLabels(["Bone", "Target Length", "Tolerance"])
+        self.table.horizontalHeader().setStretchLastSection(True)
+        for row, bone in enumerate(bones):
+            self.table.setItem(row, 0, QtWidgets.QTableWidgetItem(bone))
+            self.table.setItem(row, 1, QtWidgets.QTableWidgetItem(""))
+            self.table.setItem(row, 2, QtWidgets.QTableWidgetItem("0.20"))
+        self.status = QtWidgets.QPlainTextEdit()
+        self.status.setReadOnly(True)
+        layout.addWidget(QtWidgets.QLabel("Bone-Length / Measurement Constraints"))
+        layout.addWidget(self.table)
+        layout.addWidget(QtWidgets.QLabel("Constraint Status"))
+        layout.addWidget(self.status)
+
+    def constraints(self) -> Dict[str, tuple[float, float]]:
+        result: Dict[str, tuple[float, float]] = {}
+        for row in range(self.table.rowCount()):
+            bone = self.table.item(row, 0).text()
+            target_text = self.table.item(row, 1).text().strip()
+            tol_text = self.table.item(row, 2).text().strip()
+            if target_text:
+                result[bone] = (float(target_text), float(tol_text or 0.2))
+        return result
+
+    def set_status(self, payload: dict) -> None:
+        self.status.setPlainText(json.dumps(payload, indent=2, ensure_ascii=False))

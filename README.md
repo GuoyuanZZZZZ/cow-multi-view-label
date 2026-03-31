@@ -1,1 +1,122 @@
 # cow-multi-view-label
+
+跨平台（Windows / macOS）多相机二维/三维关键点标注演示程序，现已按模块拆分为清晰的工程结构，而不是单一 `app.py` 大文件。
+
+## 目录结构
+
+```text
+multiview_labeler/
+  core/
+    constants.py      # 关键点/骨架/可见性常量
+    models.py         # 标定、2D点、帧标注数据结构
+    calibration.py    # 标定保存/加载/示例标定
+    calibration_tool.py # OpenCV 棋盘格标定流程
+    dataset.py        # 多相机图片/视频导入与同步
+    annotation.py     # 标注数据管理、撤销重做、插值
+    geometry.py       # 三角化、重投影、极线
+    qc.py             # 重投影/骨长/对称性检查
+  gui/
+    views.py          # 2D视图与3D视图控件
+    calibration_dialog.py # GUI 标定面板
+    pages.py          # Project / Annotation / Calibration / Export 页面
+    theme.py          # 深色主题与界面样式
+    main_window.py    # 主窗口与交互逻辑
+  demo/
+    demo_builder.py   # 自动生成示例图片与标定
+    bootstrap.py      # 组装演示数据集
+  tools/
+    exporters.py      # 2D/3D/QC 导出工具
+    frame_sampler.py  # representative frames 推荐
+    annotation_io.py  # 导入已有标注结果
+app.py                # 顶层启动入口
+```
+
+## 已实现功能
+
+- **多相机导入**
+  - 支持按相机目录导入同步图片序列。
+  - 支持多个视频抽帧导入为同步图片序列。
+  - 当前演示按 `frame index` 同步，并保留 `sync_map`。
+  - 新增 `Import` 页面作为多视频导入向导。
+- **多相机标定**
+  - `K`、`distCoeffs`、`R`、`t`、投影矩阵 `P = K[R|t]`。
+  - JSON 保存 / 加载。
+  - 新增基于 OpenCV 棋盘格的 GUI 标定入口，可运行内参/外参估计。
+- **二维标注**
+  - 点击落点。
+  - 拖动修正。
+  - 支持 `annotate / navigate` 两种模式，将标注与视图移动分开。
+  - 支持删除当前选中关键点。
+  - 支持通过 `Visible Views` 按钮选择性打开/关闭不同视角。
+  - 鼠标滚轮缩放、工具栏整体放大缩小、适配窗口。
+  - `Shift + 鼠标拖拽` 框选当前视角区域并放大到该局部区域。
+  - 每个相机视图自带独立的 `+ / - / Fit` 缩放控制。
+  - 每个视角都有可移动十字光标，便于观察局部位置后再决定是否标注。
+  - 关键点检查表（每个点当前有多少视角完成、是否已生成 3D）。
+  - 实例级标注：支持切换 `Instance` 对多只动物分别标注。
+  - `visible / occluded / absent`。
+  - 撤销/重做、复制上一帧、插值。
+  - 多视角同步骨架显示。
+- **页面 / 工作区**
+  - `Project` 页面：项目概览、相机数量、帧数、页面结构。
+  - `Import` 页面：多视频导入向导。
+  - `Frames` 页面：代表帧推荐与快速跳转。
+  - `Annotation` 页面：多视角标注 + 关键点检查器 + 实时详情。
+  - `Constraints` 页面：骨长/真实测量值约束编辑与状态查看。
+  - `Calibration` 页面：标定工作区和状态面板。
+  - `Export/QC` 页面：QC 预览、导出与导入已有标注入口。
+- **代表帧辅助**
+  - 参考 JARVIS AnnotationTool README 中提到的 representative frames 工作流。
+  - 自动根据图像变化 + 均匀采样混合推荐更有代表性的帧，帮助优先标注关键姿态。
+- **约束编辑**
+  - 支持编辑骨段目标长度和容差。
+  - 支持根据真实测量值对当前 3D 骨长进行对比检查。
+- **实时 3D**
+  - 至少两个视角标注后实时三角化。
+  - 重投影到全部视角。
+  - 3D 骨架显示。
+  - 3D 视图支持滚轮与工具栏缩放。
+  - 3D 视图支持独立 `3D + / 3D - / 3D Reset` 控制。
+  - 3D 视图支持 `Front / Left / Right / Top` 预设视角，避免手动旋转难以回到合适位置。
+- **几何辅助**
+  - 极线显示。
+  - 未标视角给出推荐 2D 坐标。
+- **质量检查**
+  - 重投影误差。
+  - 骨段长度。
+  - 左右对称性。
+  - 异常点高亮。
+- **导出**
+  - 2D JSON/CSV。
+  - 3D JSON/CSV。
+  - QC 报告 JSON。
+- **导入已有标注**
+  - 支持从已有 `annotations.json` 重新导入到当前工程继续编辑。
+- Demo 工程自带 `reference_annotations.json`，也可以直接在工具栏点击 `Load Demo Ref` 载入参考标注结果，对比你的标注是否正确。
+
+## 界面改进
+
+- 使用更完整的深色主题，不再是过于简洁的默认控件风格。
+- 工作区重新布局为：左侧页面导航 / 中央多视角标注 / 右侧 3D + Inspector + Calibration + Export。
+- 中央相机视图改成基于 splitter 的可拖动布局，用户可以自己调整每个模块大小。
+
+## 运行方式
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+仓库内直接提供 `demo_data/reference_annotations.json` 作为现成参考答案；运行程序后也会在 `demo_data/` 下自动生成 **7 个相机、20 帧** 的同步示例图片、标定文件，并保持这份参考标注可直接导入对比。新的示例图不再只是空白底图加点，而是会直接渲染出简化版牛体轮廓与不同视角下的身体结构。
+默认示例相机布局为：
+- `cam_left`：牛身体正左侧；
+- `cam_right`：牛身体正右侧；
+- `cam_top`：牛身体上方俯视；
+- `cam_ground_fl` / `cam_ground_fr` / `cam_ground_rl` / `cam_ground_rr`：位于身体下方、两腿之间附近的 4 个地面视角。
+示例图像中会故意保留部分视角的不可见/遮挡点，以避免所有相机都“完美看到全部关键点”的不真实情况。
+
+
+### 标定说明（新增）
+- 标定支持两种输入：每个相机的棋盘格图片目录，或每个相机的标定视频。
+- 会先估计每个相机内参（K/dist），再求外参（R/t）。
+- **外参求解必须使用所有相机共同可见且同一时刻的棋盘格姿态**（同步视角帧），否则会报错提示。

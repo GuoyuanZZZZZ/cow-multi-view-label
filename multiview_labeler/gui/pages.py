@@ -85,9 +85,10 @@ class CalibrationPage(QtWidgets.QWidget):
         layout = QtWidgets.QVBoxLayout(self)
         info = QtWidgets.QLabel(
             "Calibration Workspace\n"
-            "1. Prepare chessboard images for each camera.\n"
-            "2. Click Run Calibration to estimate K/dist/R/t.\n"
-            "3. Save result to JSON for future sessions."
+            "1. Prepare chessboard images or per-camera videos.\n"
+            "2. Run calibration to estimate intrinsics (K/dist) and extrinsics (R/t).\n"
+            "3. For extrinsics, cameras must share at least one synchronized frame with the same board pose.\n"
+            "4. Save result to JSON for future sessions."
         )
         info.setWordWrap(True)
         button_row = QtWidgets.QHBoxLayout()
